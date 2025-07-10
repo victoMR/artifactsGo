@@ -59,7 +59,7 @@
 
 
 
-
+<link rel="stylesheet" href="http://localhost:1313/style.css">
 
 
 <link rel="shortcut icon" href="http://localhost:1313/favicon.png">
@@ -544,7 +544,8 @@
 </style>
 <script>
 // Configuración de la API
-const API_BASE_URL = 'https://anime-api-2r3soktbma-uc.a.run.app';
+const API_BASE_URL = 'https://anime-api-2r3soktbma-uc.a.run.app/api';
+let currentAnimes = []; // Variable global para almacenar la lista actual
 let nextId = 1;
 
 // Función para mostrar notificaciones
@@ -681,22 +682,18 @@ async function addAnime() {
 // Función para editar un anime
 function editAnime(id) {
   // Buscar el anime en la lista actual
-  const animeItem = document.querySelector(`[data-id="${id}"]`);
-  if (!animeItem) return;
-  
-  // Extraer datos del anime (método simple)
-  const title = animeItem.querySelector('.anime-title').textContent;
-  const details = animeItem.querySelectorAll('.anime-detail');
-  const genre = details[0].textContent.split(': ')[1];
-  const rating = details[1].textContent.split(': ')[1].split('/')[0];
-  const status = details[2].textContent.split(': ')[1];
+  const anime = currentAnimes.find(a => a.id === id.toString());
+  if (!anime) {
+    showNotification('Anime no encontrado', 'error');
+    return;
+  }
   
   // Llenar formulario de edición
   document.getElementById('edit-anime-id').value = id;
-  document.getElementById('edit-anime-title').value = title;
-  document.getElementById('edit-anime-genre').value = genre;
-  document.getElementById('edit-anime-rating').value = rating;
-  document.getElementById('edit-anime-status').value = status;
+  document.getElementById('edit-anime-title').value = anime.title;
+  document.getElementById('edit-anime-genre').value = anime.genre;
+  document.getElementById('edit-anime-rating').value = anime.rating;
+  document.getElementById('edit-anime-status').value = anime.status || 'Viendo';
   
   // Mostrar modal
   document.getElementById('edit-modal').style.display = 'block';
@@ -715,7 +712,7 @@ async function updateAnime() {
     return;
   }
   
-  const anime = { id: parseInt(id), title, genre, rating, status };
+  const anime = { id: id, title, genre, rating, status };
   
   try {
     const response = await fetch(`${API_BASE_URL}/animes/${id}`, {
@@ -767,6 +764,7 @@ async function deleteAnime(id) {
 // Función para cargar animes y actualizar la interfaz
 async function loadAnimes() {
   const animes = await fetchAnimes();
+  currentAnimes = animes; // Guardar la lista actual
   updateStats(animes);
   renderAnimeList(animes);
   

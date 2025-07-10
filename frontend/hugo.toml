@@ -22,9 +22,6 @@ title = '🎌 Anime Collection Manager'
   showLastUpdated = true
   showToc = true
   
-  # CSS personalizado
-  customCSS = ["css/custom.css"]
-  
   # Favicon
   favicon = "/favicon.svg"
   

@@ -12,41 +12,19 @@
 
 /* Animaciones globales */
 @keyframes glow {
-
-  0%,
-  100% {
-    text-shadow: 0 0 5px var(--terminal-green);
-  }
-
-  50% {
-    text-shadow: 0 0 20px var(--terminal-green), 0 0 30px var(--terminal-green);
-  }
+  0%, 100% { text-shadow: 0 0 5px var(--terminal-green); }
+  50% { text-shadow: 0 0 20px var(--terminal-green), 0 0 30px var(--terminal-green); }
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 @keyframes slideInLeft {
-  from {
-    transform: translateX(-30px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* Mejoras al header */
@@ -94,25 +72,11 @@ ul li {
   animation-fill-mode: both;
 }
 
-ul li:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-ul li:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-ul li:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-ul li:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-ul li:nth-child(5) {
-  animation-delay: 0.5s;
-}
+ul li:nth-child(1) { animation-delay: 0.1s; }
+ul li:nth-child(2) { animation-delay: 0.2s; }
+ul li:nth-child(3) { animation-delay: 0.3s; }
+ul li:nth-child(4) { animation-delay: 0.4s; }
+ul li:nth-child(5) { animation-delay: 0.5s; }
 
 /* Mejoras al contenido */
 .content {
@@ -200,21 +164,21 @@ html {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-
+  
   .anime-details {
     grid-template-columns: 1fr;
   }
-
+  
   .modal-content {
     width: 95%;
     margin: 10% auto;
     padding: 1rem;
   }
-
+  
   .form-group {
     margin-bottom: 0.8rem;
   }
-
+  
   .terminal-btn {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
@@ -233,9 +197,7 @@ html {
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 /* Mejoras a los formularios */
@@ -305,7 +267,7 @@ body:before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background-image:
+  background-image: 
     radial-gradient(circle at 20% 50%, rgba(0, 255, 0, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(0, 255, 0, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 40% 80%, rgba(0, 255, 0, 0.02) 0%, transparent 50%);
@@ -313,13 +275,6 @@ body:before {
 }
 
 @keyframes particleFloat {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
 }
