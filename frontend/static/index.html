@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎌 Anime API - CRUD Frontend</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border: 2px solid #e9ecef;
+    }
+
+    .form-title {
+      color: #495057;
+      margin-bottom: 20px;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #495057;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #dee2e6;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+      transform: translateY(-2px);
+    }
+
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn-success:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+      transform: translateY(-2px);
+    }
+
+    #anime-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .anime-card {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #007bff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .anime-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .anime-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .anime-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+
+    .anime-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .anime-info {
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .loading {
+      text-align: center;
+      color: #666;
+      padding: 20px;
+      font-size: 1.1em;
+    }
+
+    .error {
+      color: #dc3545;
+      background-color: #f8d7da;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #f5c6cb;
+    }
+
+    .success {
+      color: #155724;
+      background-color: #d4edda;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #c3e6cb;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #e9ecef;
+      border-radius: 10px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2em;
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .rating-stars {
+      color: #ffc107;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      .anime-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .anime-actions {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🎌 Anime Collection Manager</h1>
+
+    <!-- Statistics -->
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number" id="total-animes">0</div>
+        <div class="stat-label">Total Animes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="avg-rating">0.0</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="top-genre">-</div>
+        <div class="stat-label">Top Genre</div>
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="messages"></div>
+
+    <!-- Add New Anime Form -->
+    <div class="form-container">
+      <div class="form-title">➕ Add New Anime</div>
+      <form id="add-anime-form">
+        <div class="form-group">
+          <label for="anime-id">📝 ID:</label>
+          <input type="text" id="anime-id" required placeholder="Enter unique ID">
+        </div>
+        <div class="form-group">
+          <label for="anime-title">🎭 Title:</label>
+          <input type="text" id="anime-title" required placeholder="Enter anime title">
+        </div>
+        <div class="form-group">
+          <label for="anime-genre">🎪 Genre:</label>
+          <select id="anime-genre" required>
+            <option value="">Select a genre</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Horror">Horror</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Slice of Life">Slice of Life</option>
+            <option value="Sports">Sports</option>
+            <option value="Supernatural">Supernatural</option>
+            <option value="Thriller">Thriller</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="anime-rating">⭐ Rating (1-5):</label>
+          <input type="number" id="anime-rating" min="1" max="5" required placeholder="Enter rating">
+        </div>
+        <button type="submit" class="btn btn-success">➕ Add Anime</button>
+        <button type="button" class="btn btn-secondary" onclick="clearForm()">🔄 Clear Form</button>
+      </form>
+    </div>
+
+    <!-- Anime List -->
+    <div id="anime-list">
+      <div class="loading">🔄 Loading animes...</div>
+    </div>
+  </div>
+
+  <script>
+    let animes = [];
+
+    // Show message function
+    function showMessage(message, type = 'success') {
+      const messagesDiv = document.getElementById('messages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = type;
+      messageDiv.textContent = message;
+      messagesDiv.appendChild(messageDiv);
+
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        messageDiv.remove();
+      }, 5000);
+    }
+
+    // Clear form function
+    function clearForm() {
+      document.getElementById('add-anime-form').reset();
+    }
+
+    // Update statistics
+    function updateStats() {
+      const totalAnimes = animes.length;
+      const avgRating = animes.length > 0 ?
+        (animes.reduce((sum, anime) => sum + anime.rating, 0) / animes.length).toFixed(1) : 0;
+
+      // Find top genre
+      const genreCounts = {};
+      animes.forEach(anime => {
+        genreCounts[anime.genre] = (genreCounts[anime.genre] || 0) + 1;
+      });
+      const topGenre = Object.keys(genreCounts).reduce((a, b) =>
+        genreCounts[a] > genreCounts[b] ? a : b, '-');
+
+      document.getElementById('total-animes').textContent = totalAnimes;
+      document.getElementById('avg-rating').textContent = avgRating;
+      document.getElementById('top-genre').textContent = topGenre;
+    }
+
+    // Load animes from API
+    async function loadAnimes() {
+      try {
+        const response = await fetch('/animes');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        animes = await response.json();
+        displayAnimes();
+        updateStats();
+      } catch (error) {
+        console.error('Error loading animes:', error);
+        showMessage(`Error loading animes: ${error.message}`, 'error');
+        document.getElementById('anime-list').innerHTML =
+          `<div class="error">❌ Error loading animes: ${error.message}</div>`;
+      }
+    }
+
+    // Display animes
+    function displayAnimes() {
+      const list = document.getElementById('anime-list');
+
+      if (animes.length === 0) {
+        list.innerHTML = '<div class="loading">📭 No animes found. Add your first anime!</div>';
+        return;
+      }
+
+      list.innerHTML = animes.map(anime => `
+                <div class="anime-card">
+                    <div class="anime-header">
+                        <h3 class="anime-title">${anime.title}</h3>
+                        <div class="anime-actions">
+                            <button class="btn btn-danger" onclick="deleteAnime('${anime.id}')">
+                                🗑️ Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="anime-info">
+                        <p><strong>🎪 Genre:</strong> ${anime.genre}</p>
+                        <p><strong>⭐ Rating:</strong> 
+                            <span class="rating-stars">${'★'.repeat(anime.rating)}${'☆'.repeat(5 - anime.rating)}</span>
+                            (${anime.rating}/5)
+                        </p>
+                        <p><strong>🆔 ID:</strong> ${anime.id}</p>
+                    </div>
+                </div>
+            `).join('');
+    }
+
+    // Add new anime
+    async function addAnime(animeData) {
+      try {
+        const response = await fetch('/animes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(animeData)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+        }
+
+        const newAnime = await response.json();
+        animes.push(newAnime);
+        displayAnimes();
+        updateStats();
+        showMessage(`✅ Anime "${newAnime.title}" added successfully!`, 'success');
+        clearForm();
+      } catch (error) {
+        console.error('Error adding anime:', error);
+        showMessage(`❌ Error adding anime: ${error.message}`, 'error');
+      }
+    }
+
+    // Delete anime
+    async function deleteAnime(id) {
+      if (!confirm('🗑️ Are you sure you want to delete this anime?')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/animes/${id}`, {
+          method: 'DELETE'
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+        }
+
+        animes = animes.filter(anime => anime.id !== id);
+        displayAnimes();
+        updateStats();
+        showMessage(`🗑️ Anime deleted successfully!`, 'success');
+      } catch (error) {
+        console.error('Error deleting anime:', error);
+        showMessage(`❌ Error deleting anime: ${error.message}`, 'error');
+      }
+    }
+
+    // Form submission handler
+    document.getElementById('add-anime-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const animeData = {
+        id: document.getElementById('anime-id').value,
+        title: document.getElementById('anime-title').value,
+        genre: document.getElementById('anime-genre').value,
+        rating: parseInt(document.getElementById('anime-rating').value)
+      };
+
+      // Check if ID already exists
+      if (animes.some(anime => anime.id === animeData.id)) {
+        showMessage(`❌ Anime with ID "${animeData.id}" already exists!`, 'error');
+        return;
+      }
+
+      addAnime(animeData);
+    });
+
+    // Load animes on page load
+    document.addEventListener('DOMContentLoaded', loadAnimes);
+  </script>
+</body>
+
+</html>

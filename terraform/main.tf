@@ -68,6 +68,7 @@ resource "google_cloudbuild_trigger" "build" {
   }
 
   build {
+    logs_bucket = ""
     timeout = "600s"
 
     step {

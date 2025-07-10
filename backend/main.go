@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,7 +21,13 @@ var animes = []Anime{
 func main() {
 	r := gin.Default()
 
-	r.Static("/", "/static")
+	// Serve index.html at root
+	r.GET("/", func(c *gin.Context) {
+		c.File("./static/index.html")
+	})
+
+	// Serve static files (this will handle /static/index.html automatically)
+	r.Static("/static", "./static")
 
 	// Endpoints CRUD
 	r.GET("/animes", getAnimes)
