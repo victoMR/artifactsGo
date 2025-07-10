@@ -46,7 +46,8 @@ resource "google_project_iam_member" "cloudbuild_sa_roles" {
   for_each = toset([
     "roles/cloudbuild.builds.builder",
     "roles/artifactregistry.writer",
-    "roles/logging.logWriter"
+    "roles/logging.logWriter",
+    "roles/run.admin"
   ])
   project = var.project_id
   role    = each.key
@@ -91,6 +92,20 @@ resource "google_cloudbuild_trigger" "build" {
       args = [
         "push",
         "us-central1-docker.pkg.dev/${var.project_id}/anime-api-repo/anime-api:latest"
+      ]
+    }
+
+    # Nuevo paso: Desplegar a Cloud Run
+    step {
+      name = "gcr.io/cloud-builders/gcloud"
+      args = [
+        "run",
+        "deploy",
+        "anime-api",
+        "--image=us-central1-docker.pkg.dev/${var.project_id}/anime-api-repo/anime-api:latest",
+        "--region=us-central1",
+        "--platform=managed",
+        "--allow-unauthenticated"
       ]
     }
 
