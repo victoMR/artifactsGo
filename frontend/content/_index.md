@@ -18,7 +18,7 @@ Una aplicación web moderna con **estilo terminal retro** para gestionar tu cole
 - **� Responsive** - Funciona en todos los dispositivos
 - **⚡ API REST** - Backend robusto en Go
 
-## � Empezar Ahora
+## Empezar Ahora
 
 {{< button href="/posts/anime-crud/" >}}
 🎌 Abrir Aplicación
@@ -28,7 +28,7 @@ Una aplicación web moderna con **estilo terminal retro** para gestionar tu cole
 
 - **Backend**: Go + Gin Framework
 - **Frontend**: Hugo + Terminal Theme  
-- **Database**: PostgreSQL
+- **Storage**: In-Memory (datos temporales)
 - **Deploy**: Docker + Google Cloud Run
 - **IaC**: Terraform
 
