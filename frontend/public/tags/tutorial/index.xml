@@ -1,19 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tutorial on 🎌 Anime Collection Manager</title>
-    <link>http://localhost:1313/tags/tutorial/</link>
-    <description>Recent content in Tutorial on 🎌 Anime Collection Manager</description>
-    <generator>Hugo</generator>
-    <language>es-es</language>
-    <lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>🚀 Cómo usar Anime Collection Manager</title>
-      <link>http://localhost:1313/posts/guia-uso/</link>
-      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/guia-uso/</guid>
-      <description>&lt;h1 id=&#34;-guía-completa-de-anime-collection-manager&#34;&gt;🚀 Guía Completa de Anime Collection Manager&lt;/h1&gt;&#xA;&lt;p&gt;¡Bienvenido a la guía definitiva para usar &lt;strong&gt;Anime Collection Manager&lt;/strong&gt;! En este tutorial aprenderás a sacar el máximo provecho de todas las funcionalidades.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-primeros-pasos&#34;&gt;🎯 Primeros Pasos&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-acceder-a-la-aplicación&#34;&gt;1. Acceder a la Aplicación&lt;/h3&gt;&#xA;&lt;p&gt;Dirígete a la &lt;a href=&#34;http://localhost:1313/posts/anime-crud/&#34;&gt;&lt;strong&gt;🎌 Aplicación CRUD&lt;/strong&gt;&lt;/a&gt; desde el menú principal.&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-explorar-el-dashboard&#34;&gt;2. Explorar el Dashboard&lt;/h3&gt;&#xA;&lt;p&gt;El dashboard te muestra estadísticas clave:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Total de Animes&lt;/strong&gt;: Cantidad total en tu colección&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rating Promedio&lt;/strong&gt;: Calificación media de todos tus animes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Último Añadido&lt;/strong&gt;: El anime más reciente en tu biblioteca&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-añadir-animes&#34;&gt;➕ Añadir Animes&lt;/h2&gt;&#xA;&lt;h3 id=&#34;campos-requeridos&#34;&gt;Campos Requeridos:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;📺 Título&lt;/strong&gt;: Nombre del anime&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;🎭 Género&lt;/strong&gt;: Categoría principal&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;⭐ Rating&lt;/strong&gt;: Calificación del 1 al 10&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;📺 Estado&lt;/strong&gt;: Estado actual de visualización&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;géneros-disponibles&#34;&gt;Géneros Disponibles:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;⚔️ &lt;strong&gt;Acción&lt;/strong&gt;: Para animes llenos de combates&lt;/li&gt;&#xA;&lt;li&gt;🗺️ &lt;strong&gt;Aventura&lt;/strong&gt;: Historias épicas de exploración&lt;/li&gt;&#xA;&lt;li&gt;🎭 &lt;strong&gt;Drama&lt;/strong&gt;: Narrativas emotivas y profundas&lt;/li&gt;&#xA;&lt;li&gt;😂 &lt;strong&gt;Comedia&lt;/strong&gt;: Para reírte un rato&lt;/li&gt;&#xA;&lt;li&gt;💕 &lt;strong&gt;Romance&lt;/strong&gt;: Historias de amor&lt;/li&gt;&#xA;&lt;li&gt;🦄 &lt;strong&gt;Fantasía&lt;/strong&gt;: Mundos mágicos y criaturas&lt;/li&gt;&#xA;&lt;li&gt;🚀 &lt;strong&gt;Ciencia Ficción&lt;/strong&gt;: Futurismo y tecnología&lt;/li&gt;&#xA;&lt;li&gt;😱 &lt;strong&gt;Thriller&lt;/strong&gt;: Suspenso y misterio&lt;/li&gt;&#xA;&lt;li&gt;🌸 &lt;strong&gt;Slice of Life&lt;/strong&gt;: Vida cotidiana japonesa&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;estados-de-visualización&#34;&gt;Estados de Visualización:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;✅ &lt;strong&gt;Completado&lt;/strong&gt;: Ya terminaste de verlo&lt;/li&gt;&#xA;&lt;li&gt;👀 &lt;strong&gt;Viendo&lt;/strong&gt;: Actualmente en progreso&lt;/li&gt;&#xA;&lt;li&gt;⏸️ &lt;strong&gt;Pausado&lt;/strong&gt;: En pausa temporal&lt;/li&gt;&#xA;&lt;li&gt;❌ &lt;strong&gt;Abandonado&lt;/strong&gt;: Decidiste no continuar&lt;/li&gt;&#xA;&lt;li&gt;📅 &lt;strong&gt;Planificado&lt;/strong&gt;: En tu lista de &amp;ldquo;por ver&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-gestión-de-animes&#34;&gt;✏️ Gestión de Animes&lt;/h2&gt;&#xA;&lt;h3 id=&#34;editar-animes&#34;&gt;Editar Animes&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Haz clic en &lt;strong&gt;✏️ Editar&lt;/strong&gt; en cualquier anime&lt;/li&gt;&#xA;&lt;li&gt;Modifica los campos que desees&lt;/li&gt;&#xA;&lt;li&gt;Haz clic en &lt;strong&gt;💾 Actualizar&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;eliminar-animes&#34;&gt;Eliminar Animes&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Haz clic en &lt;strong&gt;🗑️ Eliminar&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Confirma la acción en el diálogo&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;-características-avanzadas&#34;&gt;📱 Características Avanzadas&lt;/h2&gt;&#xA;&lt;h3 id=&#34;responsive-design&#34;&gt;Responsive Design&lt;/h3&gt;&#xA;&lt;p&gt;La aplicación se adapta automáticamente a:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on 🎌 Anime Collection Manager</title><link>https://anime-api-2r3soktbma-uc.a.run.app/tags/tutorial/</link><description>Recent content in Tutorial on 🎌 Anime Collection Manager</description><generator>Hugo</generator><language>es-es</language><lastBuildDate>Wed, 09 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://anime-api-2r3soktbma-uc.a.run.app/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>🚀 Cómo usar Anime Collection Manager</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/guia-uso/</link><pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate><guid>https://anime-api-2r3soktbma-uc.a.run.app/posts/guia-uso/</guid><description>&lt;h1 id="-guía-completa-de-anime-collection-manager">🚀 Guía Completa de Anime Collection Manager&lt;/h1>
+&lt;p>¡Bienvenido a la guía definitiva para usar &lt;strong>Anime Collection Manager&lt;/strong>! En este tutorial aprenderás a sacar el máximo provecho de todas las funcionalidades.&lt;/p>
+&lt;h2 id="-primeros-pasos">🎯 Primeros Pasos&lt;/h2>
+&lt;h3 id="1-acceder-a-la-aplicación">1. Acceder a la Aplicación&lt;/h3>
+&lt;p>Dirígete a la &lt;a href="https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-crud/">&lt;strong>🎌 Aplicación CRUD&lt;/strong>&lt;/a> desde el menú principal.&lt;/p>
+&lt;h3 id="2-explorar-el-dashboard">2. Explorar el Dashboard&lt;/h3>
+&lt;p>El dashboard te muestra estadísticas clave:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Total de Animes&lt;/strong>: Cantidad total en tu colección&lt;/li>
+&lt;li>&lt;strong>Rating Promedio&lt;/strong>: Calificación media de todos tus animes&lt;/li>
+&lt;li>&lt;strong>Último Añadido&lt;/strong>: El anime más reciente en tu biblioteca&lt;/li>
+&lt;/ul>
+&lt;h2 id="-añadir-animes">➕ Añadir Animes&lt;/h2>
+&lt;h3 id="campos-requeridos">Campos Requeridos:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>📺 Título&lt;/strong>: Nombre del anime&lt;/li>
+&lt;li>&lt;strong>🎭 Género&lt;/strong>: Categoría principal&lt;/li>
+&lt;li>&lt;strong>⭐ Rating&lt;/strong>: Calificación del 1 al 10&lt;/li>
+&lt;li>&lt;strong>📺 Estado&lt;/strong>: Estado actual de visualización&lt;/li>
+&lt;/ul>
+&lt;h3 id="géneros-disponibles">Géneros Disponibles:&lt;/h3>
+&lt;ul>
+&lt;li>⚔️ &lt;strong>Acción&lt;/strong>: Para animes llenos de combates&lt;/li>
+&lt;li>🗺️ &lt;strong>Aventura&lt;/strong>: Historias épicas de exploración&lt;/li>
+&lt;li>🎭 &lt;strong>Drama&lt;/strong>: Narrativas emotivas y profundas&lt;/li>
+&lt;li>😂 &lt;strong>Comedia&lt;/strong>: Para reírte un rato&lt;/li>
+&lt;li>💕 &lt;strong>Romance&lt;/strong>: Historias de amor&lt;/li>
+&lt;li>🦄 &lt;strong>Fantasía&lt;/strong>: Mundos mágicos y criaturas&lt;/li>
+&lt;li>🚀 &lt;strong>Ciencia Ficción&lt;/strong>: Futurismo y tecnología&lt;/li>
+&lt;li>😱 &lt;strong>Thriller&lt;/strong>: Suspenso y misterio&lt;/li>
+&lt;li>🌸 &lt;strong>Slice of Life&lt;/strong>: Vida cotidiana japonesa&lt;/li>
+&lt;/ul>
+&lt;h3 id="estados-de-visualización">Estados de Visualización:&lt;/h3>
+&lt;ul>
+&lt;li>✅ &lt;strong>Completado&lt;/strong>: Ya terminaste de verlo&lt;/li>
+&lt;li>👀 &lt;strong>Viendo&lt;/strong>: Actualmente en progreso&lt;/li>
+&lt;li>⏸️ &lt;strong>Pausado&lt;/strong>: En pausa temporal&lt;/li>
+&lt;li>❌ &lt;strong>Abandonado&lt;/strong>: Decidiste no continuar&lt;/li>
+&lt;li>📅 &lt;strong>Planificado&lt;/strong>: En tu lista de &amp;ldquo;por ver&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;h2 id="-gestión-de-animes">✏️ Gestión de Animes&lt;/h2>
+&lt;h3 id="editar-animes">Editar Animes&lt;/h3>
+&lt;ol>
+&lt;li>Haz clic en &lt;strong>✏️ Editar&lt;/strong> en cualquier anime&lt;/li>
+&lt;li>Modifica los campos que desees&lt;/li>
+&lt;li>Haz clic en &lt;strong>💾 Actualizar&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h3 id="eliminar-animes">Eliminar Animes&lt;/h3>
+&lt;ol>
+&lt;li>Haz clic en &lt;strong>🗑️ Eliminar&lt;/strong>&lt;/li>
+&lt;li>Confirma la acción en el diálogo&lt;/li>
+&lt;/ol>
+&lt;h2 id="-características-avanzadas">📱 Características Avanzadas&lt;/h2>
+&lt;h3 id="responsive-design">Responsive Design&lt;/h3>
+&lt;p>La aplicación se adapta automáticamente a:&lt;/p></description></item></channel></rss>

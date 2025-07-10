@@ -1,40 +1,631 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on 🎌 Anime Collection Manager</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on 🎌 Anime Collection Manager</description>
-    <generator>Hugo</generator>
-    <language>es-es</language>
-    <lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>🎌 Anime Collection Manager</title>
-      <link>http://localhost:1313/posts/anime-manager/</link>
-      <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/anime-manager/</guid>
-      <description>&lt;h1 id=&#34;gestiona-tu-colección-de-animes-favoritos&#34;&gt;Gestiona tu colección de animes favoritos&lt;/h1&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Una aplicación web moderna con interfaz de terminal para gestionar tu colección de animes.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;div id=&#34;app&#34;&gt;&#xA;  &lt;!-- Dashboard Stats --&gt;&#xA;  &lt;div class=&#34;stats-container&#34;&gt;&#xA;    &lt;div class=&#34;stat-card&#34;&gt;&#xA;      &lt;h3&gt;📊 Total Animes&lt;/h3&gt;&#xA;      &lt;span id=&#34;total-animes&#34;&gt;0&lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;div class=&#34;stat-card&#34;&gt;&#xA;      &lt;h3&gt;⭐ Rating Promedio&lt;/h3&gt;&#xA;      &lt;span id=&#34;avg-rating&#34;&gt;0&lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;div class=&#34;stat-card&#34;&gt;&#xA;      &lt;h3&gt;🎭 Género Popular&lt;/h3&gt;&#xA;      &lt;span id=&#34;popular-genre&#34;&gt;-&lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;!-- Add Anime Form --&gt;&#xA;  &lt;div class=&#34;form-container&#34;&gt;&#xA;    &lt;h2&gt;➕ Agregar Nuevo Anime&lt;/h2&gt;&#xA;    &lt;form id=&#34;add-anime-form&#34;&gt;&#xA;      &lt;div class=&#34;form-group&#34; style=&#34;display: none;&#34;&gt;&#xA;        &lt;label for=&#34;anime-id&#34;&gt;ID:&lt;/label&gt;&#xA;        &lt;input type=&#34;text&#34; id=&#34;anime-id&#34; readonly&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div class=&#34;form-group&#34;&gt;&#xA;        &lt;label for=&#34;anime-title&#34;&gt;Título:&lt;/label&gt;&#xA;        &lt;input type=&#34;text&#34; id=&#34;anime-title&#34; required placeholder=&#34;Ej: Attack on Titan&#34;&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div class=&#34;form-group&#34;&gt;&#xA;        &lt;label for=&#34;anime-genre&#34;&gt;Género:&lt;/label&gt;&#xA;        &lt;select id=&#34;anime-genre&#34; required&gt;&#xA;          &lt;option value=&#34;&#34;&gt;Seleccionar...&lt;/option&gt;&#xA;          &lt;option value=&#34;Action&#34;&gt;Action&lt;/option&gt;&#xA;          &lt;option value=&#34;Adventure&#34;&gt;Adventure&lt;/option&gt;&#xA;          &lt;option value=&#34;Comedy&#34;&gt;Comedy&lt;/option&gt;&#xA;          &lt;option value=&#34;Drama&#34;&gt;Drama&lt;/option&gt;&#xA;          &lt;option value=&#34;Fantasy&#34;&gt;Fantasy&lt;/option&gt;&#xA;          &lt;option value=&#34;Horror&#34;&gt;Horror&lt;/option&gt;&#xA;          &lt;option value=&#34;Mystery&#34;&gt;Mystery&lt;/option&gt;&#xA;          &lt;option value=&#34;Romance&#34;&gt;Romance&lt;/option&gt;&#xA;          &lt;option value=&#34;Sci-Fi&#34;&gt;Sci-Fi&lt;/option&gt;&#xA;          &lt;option value=&#34;Slice of Life&#34;&gt;Slice of Life&lt;/option&gt;&#xA;          &lt;option value=&#34;Sports&#34;&gt;Sports&lt;/option&gt;&#xA;          &lt;option value=&#34;Supernatural&#34;&gt;Supernatural&lt;/option&gt;&#xA;          &lt;option value=&#34;Thriller&#34;&gt;Thriller&lt;/option&gt;&#xA;        &lt;/select&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div class=&#34;form-group&#34;&gt;&#xA;        &lt;label for=&#34;anime-rating&#34;&gt;Rating (1-5):&lt;/label&gt;&#xA;        &lt;input type=&#34;number&#34; id=&#34;anime-rating&#34; min=&#34;1&#34; max=&#34;5&#34; required placeholder=&#34;5&#34;&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;button type=&#34;submit&#34;&gt;🎌 Agregar Anime&lt;/button&gt;&#xA;    &lt;/form&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;!-- Messages --&gt;&#xA;  &lt;div id=&#34;message&#34; class=&#34;message&#34;&gt;&lt;/div&gt;&#xA;  &lt;!-- Anime List --&gt;&#xA;  &lt;div class=&#34;anime-list-container&#34;&gt;&#xA;    &lt;h2&gt;📋 Lista de Animes&lt;/h2&gt;&#xA;    &lt;div id=&#34;anime-list&#34; class=&#34;anime-grid&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;style&gt;&#xA;/* Estilos adaptados al tema Terminal */&#xA;:root {&#xA;  --terminal-primary: #ff6347;&#xA;  --terminal-secondary: #ff4757;&#xA;  --terminal-accent: #ff3838;&#xA;  --terminal-success: #2ed573;&#xA;  --terminal-bg: var(--background);&#xA;  --terminal-card: var(--accent);&#xA;  --terminal-border: var(--accent);&#xA;  --terminal-text: var(--color);&#xA;}&#xA;&#xA;#app {&#xA;  max-width: 1200px;&#xA;  margin: 2rem auto;&#xA;  padding: 0 1rem;&#xA;}&#xA;&#xA;.stats-container {&#xA;  display: grid;&#xA;  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));&#xA;  gap: 1.5rem;&#xA;  margin-bottom: 2rem;&#xA;}&#xA;&#xA;.stat-card {&#xA;  background: var(--terminal-card);&#xA;  padding: 1.5rem;&#xA;  border-radius: 4px;&#xA;  text-align: center;&#xA;  border: 1px solid var(--terminal-border);&#xA;  transition: all 0.3s ease;&#xA;}&#xA;&#xA;.stat-card:hover {&#xA;  transform: translateY(-2px);&#xA;  border-color: var(--terminal-primary);&#xA;}&#xA;&#xA;.stat-card h3 {&#xA;  margin: 0 0 1rem 0;&#xA;  font-size: 1rem;&#xA;  opacity: 0.8;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.stat-card span {&#xA;  font-size: 2rem;&#xA;  font-weight: bold;&#xA;  display: block;&#xA;  color: var(--terminal-primary);&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.form-container {&#xA;  background: var(--terminal-card);&#xA;  padding: 2rem;&#xA;  border-radius: 4px;&#xA;  margin-bottom: 2rem;&#xA;  border: 1px solid var(--terminal-border);&#xA;}&#xA;&#xA;.form-container h2 {&#xA;  margin-top: 0;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;  color: var(--terminal-primary);&#xA;}&#xA;&#xA;.form-group {&#xA;  margin-bottom: 1.5rem;&#xA;}&#xA;&#xA;.form-group label {&#xA;  display: block;&#xA;  margin-bottom: 0.5rem;&#xA;  font-weight: 600;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.form-group input,&#xA;.form-group select {&#xA;  width: 100%;&#xA;  padding: 0.75rem;&#xA;  border: 1px solid var(--terminal-border);&#xA;  border-radius: 4px;&#xA;  background: var(--terminal-bg);&#xA;  color: var(--terminal-text);&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.form-group input:focus,&#xA;.form-group select:focus {&#xA;  outline: none;&#xA;  border-color: var(--terminal-primary);&#xA;}&#xA;&#xA;button {&#xA;  background: var(--terminal-primary);&#xA;  color: var(--terminal-bg);&#xA;  padding: 0.75rem 1.5rem;&#xA;  border: none;&#xA;  border-radius: 4px;&#xA;  font-weight: 600;&#xA;  cursor: pointer;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;  transition: background 0.3s ease;&#xA;}&#xA;&#xA;button:hover {&#xA;  background: var(--terminal-secondary);&#xA;}&#xA;&#xA;.message {&#xA;  padding: 1rem;&#xA;  margin: 1rem 0;&#xA;  border-radius: 4px;&#xA;  text-align: center;&#xA;  display: none;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.message.success {&#xA;  background: rgba(46, 213, 115, 0.1);&#xA;  color: var(--terminal-success);&#xA;  border: 1px solid var(--terminal-success);&#xA;}&#xA;&#xA;.message.error {&#xA;  background: rgba(255, 56, 56, 0.1);&#xA;  color: var(--terminal-accent);&#xA;  border: 1px solid var(--terminal-accent);&#xA;}&#xA;&#xA;.anime-list-container h2 {&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;  color: var(--terminal-primary);&#xA;}&#xA;&#xA;.anime-grid {&#xA;  display: grid;&#xA;  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));&#xA;  gap: 1rem;&#xA;}&#xA;&#xA;.anime-card {&#xA;  background: var(--terminal-card);&#xA;  border-radius: 4px;&#xA;  padding: 1.5rem;&#xA;  border: 1px solid var(--terminal-border);&#xA;  transition: all 0.3s ease;&#xA;}&#xA;&#xA;.anime-card:hover {&#xA;  border-color: var(--terminal-primary);&#xA;  transform: translateY(-2px);&#xA;}&#xA;&#xA;.anime-card h3 {&#xA;  margin-top: 0;&#xA;  color: var(--terminal-primary);&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.anime-card p {&#xA;  margin: 0.5rem 0;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.anime-card .rating {&#xA;  color: var(--terminal-accent);&#xA;  font-weight: bold;&#xA;}&#xA;&#xA;.anime-card .genre {&#xA;  background: var(--terminal-primary);&#xA;  color: var(--terminal-bg);&#xA;  padding: 0.25rem 0.75rem;&#xA;  border-radius: 4px;&#xA;  font-size: 0.8rem;&#xA;  display: inline-block;&#xA;  margin: 0.5rem 0;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;}&#xA;&#xA;.delete-btn {&#xA;  background: var(--terminal-accent);&#xA;  color: var(--terminal-bg);&#xA;  border: none;&#xA;  padding: 0.5rem 1rem;&#xA;  border-radius: 4px;&#xA;  cursor: pointer;&#xA;  font-size: 0.8rem;&#xA;  font-family: &#39;Fira Code&#39;, monospace;&#xA;  transition: background 0.3s ease;&#xA;}&#xA;&#xA;.delete-btn:hover {&#xA;  background: #ff2f2f;&#xA;}&#xA;&#xA;@media (max-width: 768px) {&#xA;  .stats-container {&#xA;    grid-template-columns: 1fr;&#xA;  }&#xA;  &#xA;  .anime-grid {&#xA;    grid-template-columns: 1fr;&#xA;  }&#xA;  &#xA;  .form-container {&#xA;    padding: 1rem;&#xA;  }&#xA;}&#xA;&lt;/style&gt;&#xA;&lt;script&gt;&#xA;// API Configuration&#xA;const API_BASE_URL = &#39;/animes&#39;;&#xA;&#xA;// DOM Elements&#xA;const addAnimeForm = document.getElementById(&#39;add-anime-form&#39;);&#xA;const animeList = document.getElementById(&#39;anime-list&#39;);&#xA;const messageDiv = document.getElementById(&#39;message&#39;);&#xA;const totalAnimesSpan = document.getElementById(&#39;total-animes&#39;);&#xA;const avgRatingSpan = document.getElementById(&#39;avg-rating&#39;);&#xA;const popularGenreSpan = document.getElementById(&#39;popular-genre&#39;);&#xA;&#xA;// Initialize App&#xA;document.addEventListener(&#39;DOMContentLoaded&#39;, function() {&#xA;    loadAnimes();&#xA;    setupEventListeners();&#xA;    generateNextId();&#xA;});&#xA;&#xA;// Event Listeners&#xA;function setupEventListeners() {&#xA;    addAnimeForm.addEventListener(&#39;submit&#39;, handleAddAnime);&#xA;}&#xA;&#xA;// Generate next available ID&#xA;async function generateNextId() {&#xA;    try {&#xA;        const response = await fetch(API_BASE_URL);&#xA;        const animes = await response.json();&#xA;        &#xA;        // Find the highest ID and add 1&#xA;        let maxId = 0;&#xA;        animes.forEach(anime =&gt; {&#xA;            const id = parseInt(anime.id);&#xA;            if (!isNaN(id) &amp;&amp; id &gt; maxId) {&#xA;                maxId = id;&#xA;            }&#xA;        });&#xA;        &#xA;        const nextId = maxId + 1;&#xA;        document.getElementById(&#39;anime-id&#39;).value = nextId.toString();&#xA;    } catch (error) {&#xA;        // If API fails, use timestamp as ID&#xA;        const timestampId = Date.now().toString().slice(-6);&#xA;        document.getElementById(&#39;anime-id&#39;).value = timestampId;&#xA;    }&#xA;}&#xA;&#xA;// Load and Display Animes&#xA;async function loadAnimes() {&#xA;    try {&#xA;        const response = await fetch(API_BASE_URL);&#xA;        const animes = await response.json();&#xA;        &#xA;        displayAnimes(animes);&#xA;        updateStats(animes);&#xA;    } catch (error) {&#xA;        showMessage(&#39;Error loading animes: &#39; + error.message, &#39;error&#39;);&#xA;    }&#xA;}&#xA;&#xA;// Display Animes&#xA;function displayAnimes(animes) {&#xA;    animeList.innerHTML = &#39;&#39;;&#xA;    &#xA;    animes.forEach(anime =&gt; {&#xA;        const animeCard = document.createElement(&#39;div&#39;);&#xA;        animeCard.className = &#39;anime-card&#39;;&#xA;        animeCard.innerHTML = `&#xA;            &lt;h3&gt;${anime.title}&lt;/h3&gt;&#xA;            &lt;p&gt;&lt;strong&gt;ID:&lt;/strong&gt; ${anime.id}&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>🎌 Anime Collection Manager - Aplicación CRUD</title>
-      <link>http://localhost:1313/posts/anime-crud/</link>
-      <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/anime-crud/</guid>
-      <description>&lt;h1 id=&#34;-gestor-de-colección-de-animes&#34;&gt;🎌 Gestor de Colección de Animes&lt;/h1&gt;&#xA;&lt;p&gt;¡Bienvenido al &lt;strong&gt;Anime Collection Manager&lt;/strong&gt;! Una aplicación web moderna con interfaz terminal para gestionar tu colección personal de animes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-dashboard-de-estadísticas&#34;&gt;📊 Dashboard de Estadísticas&lt;/h2&gt;&#xA;&lt;div id=&#34;stats-dashboard&#34; class=&#34;terminal-stats&#34;&gt;&#xA;  &lt;div class=&#34;stat-card&#34;&gt;&#xA;    &lt;span class=&#34;stat-number&#34; id=&#34;total-animes&#34;&gt;0&lt;/span&gt;&#xA;    &lt;span class=&#34;stat-label&#34;&gt;Total Animes&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;stat-card&#34;&gt;&#xA;    &lt;span class=&#34;stat-number&#34; id=&#34;avg-rating&#34;&gt;0&lt;/span&gt;&#xA;    &lt;span class=&#34;stat-label&#34;&gt;Rating Promedio&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;stat-card&#34;&gt;&#xA;    &lt;span class=&#34;stat-number&#34; id=&#34;latest-anime&#34;&gt;N/A&lt;/span&gt;&#xA;    &lt;span class=&#34;stat-label&#34;&gt;Último Añadido&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;-gestión-de-animes&#34;&gt;🎯 Gestión de Animes&lt;/h2&gt;&#xA;&lt;h3 id=&#34;-agregar-nuevo-anime&#34;&gt;➕ Agregar Nuevo Anime&lt;/h3&gt;&#xA;&lt;div id=&#34;add-anime-form&#34; class=&#34;terminal-form&#34;&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-title&#34;&gt;📺 Título del Anime:&lt;/label&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;anime-title&#34; placeholder=&#34;Ej: Attack on Titan&#34; required&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-genre&#34;&gt;🎭 Género:&lt;/label&gt;&#xA;    &lt;select id=&#34;anime-genre&#34; required&gt;&#xA;      &lt;option value=&#34;&#34;&gt;Selecciona un género&lt;/option&gt;&#xA;      &lt;option value=&#34;Acción&#34;&gt;⚔️ Acción&lt;/option&gt;&#xA;      &lt;option value=&#34;Aventura&#34;&gt;🗺️ Aventura&lt;/option&gt;&#xA;      &lt;option value=&#34;Drama&#34;&gt;🎭 Drama&lt;/option&gt;&#xA;      &lt;option value=&#34;Comedia&#34;&gt;😂 Comedia&lt;/option&gt;&#xA;      &lt;option value=&#34;Romance&#34;&gt;💕 Romance&lt;/option&gt;&#xA;      &lt;option value=&#34;Fantasía&#34;&gt;🦄 Fantasía&lt;/option&gt;&#xA;      &lt;option value=&#34;Ciencia Ficción&#34;&gt;🚀 Ciencia Ficción&lt;/option&gt;&#xA;      &lt;option value=&#34;Thriller&#34;&gt;😱 Thriller&lt;/option&gt;&#xA;      &lt;option value=&#34;Slice of Life&#34;&gt;🌸 Slice of Life&lt;/option&gt;&#xA;    &lt;/select&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-rating&#34;&gt;⭐ Rating (1-10):&lt;/label&gt;&#xA;    &lt;input type=&#34;number&#34; id=&#34;anime-rating&#34; min=&#34;1&#34; max=&#34;10&#34; placeholder=&#34;8&#34; required&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-status&#34;&gt;📺 Estado:&lt;/label&gt;&#xA;    &lt;select id=&#34;anime-status&#34; required&gt;&#xA;      &lt;option value=&#34;&#34;&gt;Selecciona estado&lt;/option&gt;&#xA;      &lt;option value=&#34;Completado&#34;&gt;✅ Completado&lt;/option&gt;&#xA;      &lt;option value=&#34;Viendo&#34;&gt;👀 Viendo&lt;/option&gt;&#xA;      &lt;option value=&#34;Pausado&#34;&gt;⏸️ Pausado&lt;/option&gt;&#xA;      &lt;option value=&#34;Abandonado&#34;&gt;❌ Abandonado&lt;/option&gt;&#xA;      &lt;option value=&#34;Planificado&#34;&gt;📅 Planificado&lt;/option&gt;&#xA;    &lt;/select&gt;&#xA;  &lt;/div&gt;&#xA;&lt;p&gt;&lt;button id=&#34;add-anime-btn&#34; class=&#34;terminal-btn primary&#34;&gt;🎌 Añadir Anime&lt;/button&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>🚀 Cómo usar Anime Collection Manager</title>
-      <link>http://localhost:1313/posts/guia-uso/</link>
-      <pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/guia-uso/</guid>
-      <description>&lt;h1 id=&#34;-guía-completa-de-anime-collection-manager&#34;&gt;🚀 Guía Completa de Anime Collection Manager&lt;/h1&gt;&#xA;&lt;p&gt;¡Bienvenido a la guía definitiva para usar &lt;strong&gt;Anime Collection Manager&lt;/strong&gt;! En este tutorial aprenderás a sacar el máximo provecho de todas las funcionalidades.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-primeros-pasos&#34;&gt;🎯 Primeros Pasos&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-acceder-a-la-aplicación&#34;&gt;1. Acceder a la Aplicación&lt;/h3&gt;&#xA;&lt;p&gt;Dirígete a la &lt;a href=&#34;http://localhost:1313/posts/anime-crud/&#34;&gt;&lt;strong&gt;🎌 Aplicación CRUD&lt;/strong&gt;&lt;/a&gt; desde el menú principal.&lt;/p&gt;&#xA;&lt;h3 id=&#34;2-explorar-el-dashboard&#34;&gt;2. Explorar el Dashboard&lt;/h3&gt;&#xA;&lt;p&gt;El dashboard te muestra estadísticas clave:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Total de Animes&lt;/strong&gt;: Cantidad total en tu colección&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Rating Promedio&lt;/strong&gt;: Calificación media de todos tus animes&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Último Añadido&lt;/strong&gt;: El anime más reciente en tu biblioteca&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-añadir-animes&#34;&gt;➕ Añadir Animes&lt;/h2&gt;&#xA;&lt;h3 id=&#34;campos-requeridos&#34;&gt;Campos Requeridos:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;📺 Título&lt;/strong&gt;: Nombre del anime&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;🎭 Género&lt;/strong&gt;: Categoría principal&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;⭐ Rating&lt;/strong&gt;: Calificación del 1 al 10&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;📺 Estado&lt;/strong&gt;: Estado actual de visualización&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;géneros-disponibles&#34;&gt;Géneros Disponibles:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;⚔️ &lt;strong&gt;Acción&lt;/strong&gt;: Para animes llenos de combates&lt;/li&gt;&#xA;&lt;li&gt;🗺️ &lt;strong&gt;Aventura&lt;/strong&gt;: Historias épicas de exploración&lt;/li&gt;&#xA;&lt;li&gt;🎭 &lt;strong&gt;Drama&lt;/strong&gt;: Narrativas emotivas y profundas&lt;/li&gt;&#xA;&lt;li&gt;😂 &lt;strong&gt;Comedia&lt;/strong&gt;: Para reírte un rato&lt;/li&gt;&#xA;&lt;li&gt;💕 &lt;strong&gt;Romance&lt;/strong&gt;: Historias de amor&lt;/li&gt;&#xA;&lt;li&gt;🦄 &lt;strong&gt;Fantasía&lt;/strong&gt;: Mundos mágicos y criaturas&lt;/li&gt;&#xA;&lt;li&gt;🚀 &lt;strong&gt;Ciencia Ficción&lt;/strong&gt;: Futurismo y tecnología&lt;/li&gt;&#xA;&lt;li&gt;😱 &lt;strong&gt;Thriller&lt;/strong&gt;: Suspenso y misterio&lt;/li&gt;&#xA;&lt;li&gt;🌸 &lt;strong&gt;Slice of Life&lt;/strong&gt;: Vida cotidiana japonesa&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;estados-de-visualización&#34;&gt;Estados de Visualización:&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;✅ &lt;strong&gt;Completado&lt;/strong&gt;: Ya terminaste de verlo&lt;/li&gt;&#xA;&lt;li&gt;👀 &lt;strong&gt;Viendo&lt;/strong&gt;: Actualmente en progreso&lt;/li&gt;&#xA;&lt;li&gt;⏸️ &lt;strong&gt;Pausado&lt;/strong&gt;: En pausa temporal&lt;/li&gt;&#xA;&lt;li&gt;❌ &lt;strong&gt;Abandonado&lt;/strong&gt;: Decidiste no continuar&lt;/li&gt;&#xA;&lt;li&gt;📅 &lt;strong&gt;Planificado&lt;/strong&gt;: En tu lista de &amp;ldquo;por ver&amp;rdquo;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-gestión-de-animes&#34;&gt;✏️ Gestión de Animes&lt;/h2&gt;&#xA;&lt;h3 id=&#34;editar-animes&#34;&gt;Editar Animes&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Haz clic en &lt;strong&gt;✏️ Editar&lt;/strong&gt; en cualquier anime&lt;/li&gt;&#xA;&lt;li&gt;Modifica los campos que desees&lt;/li&gt;&#xA;&lt;li&gt;Haz clic en &lt;strong&gt;💾 Actualizar&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;eliminar-animes&#34;&gt;Eliminar Animes&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Haz clic en &lt;strong&gt;🗑️ Eliminar&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;Confirma la acción en el diálogo&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;-características-avanzadas&#34;&gt;📱 Características Avanzadas&lt;/h2&gt;&#xA;&lt;h3 id=&#34;responsive-design&#34;&gt;Responsive Design&lt;/h3&gt;&#xA;&lt;p&gt;La aplicación se adapta automáticamente a:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>🛠️ Detalles Técnicos del Proyecto</title>
-      <link>http://localhost:1313/posts/arquitectura/</link>
-      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/arquitectura/</guid>
-      <description>&lt;h1 id=&#34;-arquitectura-técnica&#34;&gt;🛠️ Arquitectura Técnica&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Anime Collection Manager&lt;/strong&gt; es una aplicación web moderna construida con las mejores prácticas de desarrollo.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-arquitectura-general&#34;&gt;🏗️ Arquitectura General&lt;/h2&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐&#xA;│     Frontend    │    │     Backend     │    │    Database     │&#xA;│   Hugo + JS     │────│   Go + Gin      │────│   PostgreSQL    │&#xA;│   Terminal UI   │    │   REST API      │    │   Cloud SQL     │&#xA;└─────────────────┘    └─────────────────┘    └─────────────────┘&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-frontend-technologies&#34;&gt;🎨 Frontend Technologies&lt;/h2&gt;&#xA;&lt;h3 id=&#34;hugo-static-site-generator&#34;&gt;Hugo Static Site Generator&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Versión&lt;/strong&gt;: v0.148.0+extended&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tema&lt;/strong&gt;: Terminal Theme v4&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Lenguaje&lt;/strong&gt;: Go Templates + JavaScript&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;terminal-theme-features&#34;&gt;Terminal Theme Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🎨 &lt;strong&gt;Diseño retro&lt;/strong&gt;: Estilo terminal nostálgico&lt;/li&gt;&#xA;&lt;li&gt;🌙 &lt;strong&gt;Modo oscuro&lt;/strong&gt;: Por defecto&lt;/li&gt;&#xA;&lt;li&gt;📱 &lt;strong&gt;Responsive&lt;/strong&gt;: Adaptable a todos los dispositivos&lt;/li&gt;&#xA;&lt;li&gt;⚡ &lt;strong&gt;Rápido&lt;/strong&gt;: Generación estática optimizada&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;javascript-vanilla&#34;&gt;JavaScript Vanilla&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🚀 &lt;strong&gt;Sin frameworks&lt;/strong&gt;: JavaScript puro para máximo rendimiento&lt;/li&gt;&#xA;&lt;li&gt;🔄 &lt;strong&gt;Async/Await&lt;/strong&gt;: Manejo moderno de promesas&lt;/li&gt;&#xA;&lt;li&gt;📡 &lt;strong&gt;Fetch API&lt;/strong&gt;: Comunicación con el backend&lt;/li&gt;&#xA;&lt;li&gt;🎯 &lt;strong&gt;DOM Manipulation&lt;/strong&gt;: Actualización dinámica de la interfaz&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-backend-technologies&#34;&gt;🔧 Backend Technologies&lt;/h2&gt;&#xA;&lt;h3 id=&#34;go-programming-language&#34;&gt;Go Programming Language&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Versión&lt;/strong&gt;: Go 1.19+&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Framework&lt;/strong&gt;: Gin Web Framework&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Arquitectura&lt;/strong&gt;: REST API&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;gin-framework-features&#34;&gt;Gin Framework Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;⚡ &lt;strong&gt;Alta performance&lt;/strong&gt;: Hasta 40x más rápido que Martini&lt;/li&gt;&#xA;&lt;li&gt;🛡️ &lt;strong&gt;Middleware&lt;/strong&gt;: CORS, logging, recovery&lt;/li&gt;&#xA;&lt;li&gt;📝 &lt;strong&gt;JSON binding&lt;/strong&gt;: Serialización automática&lt;/li&gt;&#xA;&lt;li&gt;🔀 &lt;strong&gt;Routing&lt;/strong&gt;: Sistema de rutas eficiente&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;api-endpoints&#34;&gt;API Endpoints&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;GET    /animes          # Obtener todos los animes&#xA;POST   /animes          # Crear nuevo anime&#xA;GET    /animes/:id      # Obtener anime por ID&#xA;PUT    /animes/:id      # Actualizar anime&#xA;DELETE /animes/:id      # Eliminar anime&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-database-layer&#34;&gt;🗄️ Database Layer&lt;/h2&gt;&#xA;&lt;h3 id=&#34;postgresql&#34;&gt;PostgreSQL&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Versión&lt;/strong&gt;: PostgreSQL 13+&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Servicio&lt;/strong&gt;: Google Cloud SQL&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Conexión&lt;/strong&gt;: Pooling de conexiones&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;schema-structure&#34;&gt;Schema Structure&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TABLE&lt;/span&gt; animes (&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    id SERIAL &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIMARY&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;KEY&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    title VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    genre VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    rating INTEGER &lt;span style=&#34;color:#66d9ef&#34;&gt;CHECK&lt;/span&gt; (rating &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;AND&lt;/span&gt; rating &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;),&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    status VARCHAR(&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;NOT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULL&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    created_at &lt;span style=&#34;color:#66d9ef&#34;&gt;TIMESTAMP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DEFAULT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CURRENT_TIMESTAMP&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updated_at &lt;span style=&#34;color:#66d9ef&#34;&gt;TIMESTAMP&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DEFAULT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CURRENT_TIMESTAMP&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;);&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-cloud-infrastructure&#34;&gt;☁️ Cloud Infrastructure&lt;/h2&gt;&#xA;&lt;h3 id=&#34;google-cloud-platform&#34;&gt;Google Cloud Platform&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Compute&lt;/strong&gt;: Cloud Run (Serverless)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Database&lt;/strong&gt;: Cloud SQL (PostgreSQL)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Container&lt;/strong&gt;: Docker&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Registry&lt;/strong&gt;: Artifact Registry&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;docker-configuration&#34;&gt;Docker Configuration&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; golang:1.19-alpine AS builder&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; /app&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; . .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; go mod download&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; go build -o main .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; alpine:latest&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; apk --no-cache add ca-certificates&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; /root/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; --from&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;builder /app/main .&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./main&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-deployment-pipeline&#34;&gt;🚀 Deployment Pipeline&lt;/h2&gt;&#xA;&lt;h3 id=&#34;infrastructure-as-code&#34;&gt;Infrastructure as Code&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Terraform&lt;/strong&gt;: Gestión de recursos GCP&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Variables&lt;/strong&gt;: Configuración centralizada&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;State&lt;/strong&gt;: Backend remoto en GCS&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;cicd-process&#34;&gt;CI/CD Process&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt;: Compilación de Go binary&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Test&lt;/strong&gt;: Ejecución de pruebas unitarias&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;: Construcción de imagen&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Deploy&lt;/strong&gt;: Despliegue en Cloud Run&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;-performance-optimizations&#34;&gt;📊 Performance Optimizations&lt;/h2&gt;&#xA;&lt;h3 id=&#34;frontend-optimizations&#34;&gt;Frontend Optimizations&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🗜️ &lt;strong&gt;Minificación&lt;/strong&gt;: CSS y JS comprimidos&lt;/li&gt;&#xA;&lt;li&gt;📦 &lt;strong&gt;Bundling&lt;/strong&gt;: Archivos combinados&lt;/li&gt;&#xA;&lt;li&gt;🖼️ &lt;strong&gt;Lazy Loading&lt;/strong&gt;: Carga diferida de imágenes&lt;/li&gt;&#xA;&lt;li&gt;🔄 &lt;strong&gt;Caching&lt;/strong&gt;: Headers de caché optimizados&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;backend-optimizations&#34;&gt;Backend Optimizations&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔗 &lt;strong&gt;Connection Pooling&lt;/strong&gt;: Reutilización de conexiones DB&lt;/li&gt;&#xA;&lt;li&gt;📊 &lt;strong&gt;Query Optimization&lt;/strong&gt;: Índices de base de datos&lt;/li&gt;&#xA;&lt;li&gt;🗜️ &lt;strong&gt;Compression&lt;/strong&gt;: Gzip response compression&lt;/li&gt;&#xA;&lt;li&gt;⚡ &lt;strong&gt;Gin Performance&lt;/strong&gt;: Framework optimizado&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-security-features&#34;&gt;🔒 Security Features&lt;/h2&gt;&#xA;&lt;h3 id=&#34;frontend-security&#34;&gt;Frontend Security&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🛡️ &lt;strong&gt;XSS Protection&lt;/strong&gt;: Sanitización de inputs&lt;/li&gt;&#xA;&lt;li&gt;🔐 &lt;strong&gt;HTTPS&lt;/strong&gt;: Conexiones seguras&lt;/li&gt;&#xA;&lt;li&gt;🚫 &lt;strong&gt;CSP&lt;/strong&gt;: Content Security Policy&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;backend-security&#34;&gt;Backend Security&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔒 &lt;strong&gt;SQL Injection Protection&lt;/strong&gt;: Prepared statements&lt;/li&gt;&#xA;&lt;li&gt;🛡️ &lt;strong&gt;CORS&lt;/strong&gt;: Cross-Origin Resource Sharing&lt;/li&gt;&#xA;&lt;li&gt;📝 &lt;strong&gt;Input Validation&lt;/strong&gt;: Validación de datos de entrada&lt;/li&gt;&#xA;&lt;li&gt;🔐 &lt;strong&gt;Environment Variables&lt;/strong&gt;: Secrets management&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-monitoring--observability&#34;&gt;📈 Monitoring &amp;amp; Observability&lt;/h2&gt;&#xA;&lt;h3 id=&#34;logging&#34;&gt;Logging&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;📊 &lt;strong&gt;Structured Logging&lt;/strong&gt;: JSON format&lt;/li&gt;&#xA;&lt;li&gt;🔍 &lt;strong&gt;Request Tracing&lt;/strong&gt;: Seguimiento de requests&lt;/li&gt;&#xA;&lt;li&gt;⚠️ &lt;strong&gt;Error Tracking&lt;/strong&gt;: Captura de errores&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;metrics&#34;&gt;Metrics&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;📈 &lt;strong&gt;Performance Metrics&lt;/strong&gt;: Latencia y throughput&lt;/li&gt;&#xA;&lt;li&gt;🔍 &lt;strong&gt;Health Checks&lt;/strong&gt;: Endpoint de salud&lt;/li&gt;&#xA;&lt;li&gt;📊 &lt;strong&gt;Database Metrics&lt;/strong&gt;: Conexiones y queries&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-testing-strategy&#34;&gt;🧪 Testing Strategy&lt;/h2&gt;&#xA;&lt;h3 id=&#34;unit-tests&#34;&gt;Unit Tests&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Go Testing&lt;/strong&gt;: Pruebas unitarias del backend&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Coverage&lt;/strong&gt;: &amp;gt;80% de cobertura&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mocking&lt;/strong&gt;: Simulación de dependencias&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;integration-tests&#34;&gt;Integration Tests&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;API Testing&lt;/strong&gt;: Pruebas de endpoints&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Database Testing&lt;/strong&gt;: Pruebas de persistencia&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;E2E Testing&lt;/strong&gt;: Pruebas de extremo a extremo&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-future-enhancements&#34;&gt;🔮 Future Enhancements&lt;/h2&gt;&#xA;&lt;h3 id=&#34;planned-features&#34;&gt;Planned Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;🔍 &lt;strong&gt;Search &amp;amp; Filter&lt;/strong&gt;: Búsqueda avanzada&lt;/li&gt;&#xA;&lt;li&gt;📱 &lt;strong&gt;PWA&lt;/strong&gt;: Progressive Web App&lt;/li&gt;&#xA;&lt;li&gt;🌍 &lt;strong&gt;Multi-language&lt;/strong&gt;: Soporte i18n&lt;/li&gt;&#xA;&lt;li&gt;📊 &lt;strong&gt;Analytics&lt;/strong&gt;: Métricas de uso&lt;/li&gt;&#xA;&lt;li&gt;🔐 &lt;strong&gt;Authentication&lt;/strong&gt;: Sistema de usuarios&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;technical-debt&#34;&gt;Technical Debt&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;📝 &lt;strong&gt;API Documentation&lt;/strong&gt;: OpenAPI/Swagger&lt;/li&gt;&#xA;&lt;li&gt;🧪 &lt;strong&gt;More Tests&lt;/strong&gt;: Aumentar cobertura&lt;/li&gt;&#xA;&lt;li&gt;🔧 &lt;strong&gt;Refactoring&lt;/strong&gt;: Mejoras de código&lt;/li&gt;&#xA;&lt;li&gt;📦 &lt;strong&gt;Microservices&lt;/strong&gt;: Arquitectura distribuida&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Anime Collection Manager&lt;/strong&gt; está construido con tecnologías modernas y escalables, diseñado para crecer con las necesidades de los usuarios. 🚀✨&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 🎌 Anime Collection Manager</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/</link><description>Recent content in Posts on 🎌 Anime Collection Manager</description><generator>Hugo</generator><language>es-es</language><lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://anime-api-2r3soktbma-uc.a.run.app/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>🎌 Anime Collection Manager</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-manager/</link><pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate><guid>https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-manager/</guid><description>&lt;h1 id="gestiona-tu-colección-de-animes-favoritos">Gestiona tu colección de animes favoritos&lt;/h1>
+&lt;blockquote>
+&lt;p>Una aplicación web moderna con interfaz de terminal para gestionar tu colección de animes.&lt;/p>&lt;/blockquote>
+&lt;div id="app">
+ &lt;!-- Dashboard Stats -->
+ &lt;div class="stats-container">
+ &lt;div class="stat-card">
+ &lt;h3>📊 Total Animes&lt;/h3>
+ &lt;span id="total-animes">0&lt;/span>
+ &lt;/div>
+ &lt;div class="stat-card">
+ &lt;h3>⭐ Rating Promedio&lt;/h3>
+ &lt;span id="avg-rating">0&lt;/span>
+ &lt;/div>
+ &lt;div class="stat-card">
+ &lt;h3>🎭 Género Popular&lt;/h3>
+ &lt;span id="popular-genre">-&lt;/span>
+ &lt;/div>
+ &lt;/div>
+ &lt;!-- Add Anime Form -->
+ &lt;div class="form-container">
+ &lt;h2>➕ Agregar Nuevo Anime&lt;/h2>
+ &lt;form id="add-anime-form">
+ &lt;div class="form-group" style="display: none;">
+ &lt;label for="anime-id">ID:&lt;/label>
+ &lt;input type="text" id="anime-id" readonly>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-title">Título:&lt;/label>
+ &lt;input type="text" id="anime-title" required placeholder="Ej: Attack on Titan">
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-genre">Género:&lt;/label>
+ &lt;select id="anime-genre" required>
+ &lt;option value="">Seleccionar...&lt;/option>
+ &lt;option value="Action">Action&lt;/option>
+ &lt;option value="Adventure">Adventure&lt;/option>
+ &lt;option value="Comedy">Comedy&lt;/option>
+ &lt;option value="Drama">Drama&lt;/option>
+ &lt;option value="Fantasy">Fantasy&lt;/option>
+ &lt;option value="Horror">Horror&lt;/option>
+ &lt;option value="Mystery">Mystery&lt;/option>
+ &lt;option value="Romance">Romance&lt;/option>
+ &lt;option value="Sci-Fi">Sci-Fi&lt;/option>
+ &lt;option value="Slice of Life">Slice of Life&lt;/option>
+ &lt;option value="Sports">Sports&lt;/option>
+ &lt;option value="Supernatural">Supernatural&lt;/option>
+ &lt;option value="Thriller">Thriller&lt;/option>
+ &lt;/select>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-rating">Rating (1-5):&lt;/label>
+ &lt;input type="number" id="anime-rating" min="1" max="5" required placeholder="5">
+ &lt;/div>
+ &lt;button type="submit">🎌 Agregar Anime&lt;/button>
+ &lt;/form>
+ &lt;/div>
+ &lt;!-- Messages -->
+ &lt;div id="message" class="message">&lt;/div>
+ &lt;!-- Anime List -->
+ &lt;div class="anime-list-container">
+ &lt;h2>📋 Lista de Animes&lt;/h2>
+ &lt;div id="anime-list" class="anime-grid">&lt;/div>
+ &lt;/div>
+&lt;/div>
+&lt;style>
+/* Estilos adaptados al tema Terminal */
+:root {
+ --terminal-primary: #ff6347;
+ --terminal-secondary: #ff4757;
+ --terminal-accent: #ff3838;
+ --terminal-success: #2ed573;
+ --terminal-bg: var(--background);
+ --terminal-card: var(--accent);
+ --terminal-border: var(--accent);
+ --terminal-text: var(--color);
+}
+
+#app {
+ max-width: 1200px;
+ margin: 2rem auto;
+ padding: 0 1rem;
+}
+
+.stats-container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 1.5rem;
+ margin-bottom: 2rem;
+}
+
+.stat-card {
+ background: var(--terminal-card);
+ padding: 1.5rem;
+ border-radius: 4px;
+ text-align: center;
+ border: 1px solid var(--terminal-border);
+ transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+ transform: translateY(-2px);
+ border-color: var(--terminal-primary);
+}
+
+.stat-card h3 {
+ margin: 0 0 1rem 0;
+ font-size: 1rem;
+ opacity: 0.8;
+ font-family: 'Fira Code', monospace;
+}
+
+.stat-card span {
+ font-size: 2rem;
+ font-weight: bold;
+ display: block;
+ color: var(--terminal-primary);
+ font-family: 'Fira Code', monospace;
+}
+
+.form-container {
+ background: var(--terminal-card);
+ padding: 2rem;
+ border-radius: 4px;
+ margin-bottom: 2rem;
+ border: 1px solid var(--terminal-border);
+}
+
+.form-container h2 {
+ margin-top: 0;
+ font-family: 'Fira Code', monospace;
+ color: var(--terminal-primary);
+}
+
+.form-group {
+ margin-bottom: 1.5rem;
+}
+
+.form-group label {
+ display: block;
+ margin-bottom: 0.5rem;
+ font-weight: 600;
+ font-family: 'Fira Code', monospace;
+}
+
+.form-group input,
+.form-group select {
+ width: 100%;
+ padding: 0.75rem;
+ border: 1px solid var(--terminal-border);
+ border-radius: 4px;
+ background: var(--terminal-bg);
+ color: var(--terminal-text);
+ font-family: 'Fira Code', monospace;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+ outline: none;
+ border-color: var(--terminal-primary);
+}
+
+button {
+ background: var(--terminal-primary);
+ color: var(--terminal-bg);
+ padding: 0.75rem 1.5rem;
+ border: none;
+ border-radius: 4px;
+ font-weight: 600;
+ cursor: pointer;
+ font-family: 'Fira Code', monospace;
+ transition: background 0.3s ease;
+}
+
+button:hover {
+ background: var(--terminal-secondary);
+}
+
+.message {
+ padding: 1rem;
+ margin: 1rem 0;
+ border-radius: 4px;
+ text-align: center;
+ display: none;
+ font-family: 'Fira Code', monospace;
+}
+
+.message.success {
+ background: rgba(46, 213, 115, 0.1);
+ color: var(--terminal-success);
+ border: 1px solid var(--terminal-success);
+}
+
+.message.error {
+ background: rgba(255, 56, 56, 0.1);
+ color: var(--terminal-accent);
+ border: 1px solid var(--terminal-accent);
+}
+
+.anime-list-container h2 {
+ font-family: 'Fira Code', monospace;
+ color: var(--terminal-primary);
+}
+
+.anime-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ gap: 1rem;
+}
+
+.anime-card {
+ background: var(--terminal-card);
+ border-radius: 4px;
+ padding: 1.5rem;
+ border: 1px solid var(--terminal-border);
+ transition: all 0.3s ease;
+}
+
+.anime-card:hover {
+ border-color: var(--terminal-primary);
+ transform: translateY(-2px);
+}
+
+.anime-card h3 {
+ margin-top: 0;
+ color: var(--terminal-primary);
+ font-family: 'Fira Code', monospace;
+}
+
+.anime-card p {
+ margin: 0.5rem 0;
+ font-family: 'Fira Code', monospace;
+}
+
+.anime-card .rating {
+ color: var(--terminal-accent);
+ font-weight: bold;
+}
+
+.anime-card .genre {
+ background: var(--terminal-primary);
+ color: var(--terminal-bg);
+ padding: 0.25rem 0.75rem;
+ border-radius: 4px;
+ font-size: 0.8rem;
+ display: inline-block;
+ margin: 0.5rem 0;
+ font-family: 'Fira Code', monospace;
+}
+
+.delete-btn {
+ background: var(--terminal-accent);
+ color: var(--terminal-bg);
+ border: none;
+ padding: 0.5rem 1rem;
+ border-radius: 4px;
+ cursor: pointer;
+ font-size: 0.8rem;
+ font-family: 'Fira Code', monospace;
+ transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+ background: #ff2f2f;
+}
+
+@media (max-width: 768px) {
+ .stats-container {
+ grid-template-columns: 1fr;
+ }
+ 
+ .anime-grid {
+ grid-template-columns: 1fr;
+ }
+ 
+ .form-container {
+ padding: 1rem;
+ }
+}
+&lt;/style>
+&lt;script>
+// API Configuration
+const API_BASE_URL = '/animes';
+
+// DOM Elements
+const addAnimeForm = document.getElementById('add-anime-form');
+const animeList = document.getElementById('anime-list');
+const messageDiv = document.getElementById('message');
+const totalAnimesSpan = document.getElementById('total-animes');
+const avgRatingSpan = document.getElementById('avg-rating');
+const popularGenreSpan = document.getElementById('popular-genre');
+
+// Initialize App
+document.addEventListener('DOMContentLoaded', function() {
+ loadAnimes();
+ setupEventListeners();
+ generateNextId();
+});
+
+// Event Listeners
+function setupEventListeners() {
+ addAnimeForm.addEventListener('submit', handleAddAnime);
+}
+
+// Generate next available ID
+async function generateNextId() {
+ try {
+ const response = await fetch(API_BASE_URL);
+ const animes = await response.json();
+ 
+ // Find the highest ID and add 1
+ let maxId = 0;
+ animes.forEach(anime => {
+ const id = parseInt(anime.id);
+ if (!isNaN(id) &amp;&amp; id > maxId) {
+ maxId = id;
+ }
+ });
+ 
+ const nextId = maxId + 1;
+ document.getElementById('anime-id').value = nextId.toString();
+ } catch (error) {
+ // If API fails, use timestamp as ID
+ const timestampId = Date.now().toString().slice(-6);
+ document.getElementById('anime-id').value = timestampId;
+ }
+}
+
+// Load and Display Animes
+async function loadAnimes() {
+ try {
+ const response = await fetch(API_BASE_URL);
+ const animes = await response.json();
+ 
+ displayAnimes(animes);
+ updateStats(animes);
+ } catch (error) {
+ showMessage('Error loading animes: ' + error.message, 'error');
+ }
+}
+
+// Display Animes
+function displayAnimes(animes) {
+ animeList.innerHTML = '';
+ 
+ animes.forEach(anime => {
+ const animeCard = document.createElement('div');
+ animeCard.className = 'anime-card';
+ animeCard.innerHTML = `
+ &lt;h3>${anime.title}&lt;/h3>
+ &lt;p>&lt;strong>ID:&lt;/strong> ${anime.id}&lt;/p></description></item><item><title>🎌 Anime Collection Manager - Aplicación CRUD</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-crud/</link><pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate><guid>https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-crud/</guid><description>&lt;h1 id="-gestor-de-colección-de-animes">🎌 Gestor de Colección de Animes&lt;/h1>
+&lt;p>¡Bienvenido al &lt;strong>Anime Collection Manager&lt;/strong>! Una aplicación web moderna con interfaz terminal para gestionar tu colección personal de animes.&lt;/p>
+&lt;h2 id="-dashboard-de-estadísticas">📊 Dashboard de Estadísticas&lt;/h2>
+&lt;div id="stats-dashboard" class="terminal-stats">
+ &lt;div class="stat-card">
+ &lt;span class="stat-number" id="total-animes">0&lt;/span>
+ &lt;span class="stat-label">Total Animes&lt;/span>
+ &lt;/div>
+ &lt;div class="stat-card">
+ &lt;span class="stat-number" id="avg-rating">0&lt;/span>
+ &lt;span class="stat-label">Rating Promedio&lt;/span>
+ &lt;/div>
+ &lt;div class="stat-card">
+ &lt;span class="stat-number" id="latest-anime">N/A&lt;/span>
+ &lt;span class="stat-label">Último Añadido&lt;/span>
+ &lt;/div>
+&lt;/div>
+&lt;h2 id="-gestión-de-animes">🎯 Gestión de Animes&lt;/h2>
+&lt;h3 id="-agregar-nuevo-anime">➕ Agregar Nuevo Anime&lt;/h3>
+&lt;div id="add-anime-form" class="terminal-form">
+ &lt;div class="form-group">
+ &lt;label for="anime-title">📺 Título del Anime:&lt;/label>
+ &lt;input type="text" id="anime-title" placeholder="Ej: Attack on Titan" required>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-genre">🎭 Género:&lt;/label>
+ &lt;select id="anime-genre" required>
+ &lt;option value="">Selecciona un género&lt;/option>
+ &lt;option value="Acción">⚔️ Acción&lt;/option>
+ &lt;option value="Aventura">🗺️ Aventura&lt;/option>
+ &lt;option value="Drama">🎭 Drama&lt;/option>
+ &lt;option value="Comedia">😂 Comedia&lt;/option>
+ &lt;option value="Romance">💕 Romance&lt;/option>
+ &lt;option value="Fantasía">🦄 Fantasía&lt;/option>
+ &lt;option value="Ciencia Ficción">🚀 Ciencia Ficción&lt;/option>
+ &lt;option value="Thriller">😱 Thriller&lt;/option>
+ &lt;option value="Slice of Life">🌸 Slice of Life&lt;/option>
+ &lt;/select>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-rating">⭐ Rating (1-10):&lt;/label>
+ &lt;input type="number" id="anime-rating" min="1" max="10" placeholder="8" required>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-status">📺 Estado:&lt;/label>
+ &lt;select id="anime-status" required>
+ &lt;option value="">Selecciona estado&lt;/option>
+ &lt;option value="Completado">✅ Completado&lt;/option>
+ &lt;option value="Viendo">👀 Viendo&lt;/option>
+ &lt;option value="Pausado">⏸️ Pausado&lt;/option>
+ &lt;option value="Abandonado">❌ Abandonado&lt;/option>
+ &lt;option value="Planificado">📅 Planificado&lt;/option>
+ &lt;/select>
+ &lt;/div>
+&lt;p>&lt;button id="add-anime-btn" class="terminal-btn primary">🎌 Añadir Anime&lt;/button>&lt;/p></description></item><item><title>🚀 Cómo usar Anime Collection Manager</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/guia-uso/</link><pubDate>Wed, 09 Jul 2025 00:00:00 +0000</pubDate><guid>https://anime-api-2r3soktbma-uc.a.run.app/posts/guia-uso/</guid><description>&lt;h1 id="-guía-completa-de-anime-collection-manager">🚀 Guía Completa de Anime Collection Manager&lt;/h1>
+&lt;p>¡Bienvenido a la guía definitiva para usar &lt;strong>Anime Collection Manager&lt;/strong>! En este tutorial aprenderás a sacar el máximo provecho de todas las funcionalidades.&lt;/p>
+&lt;h2 id="-primeros-pasos">🎯 Primeros Pasos&lt;/h2>
+&lt;h3 id="1-acceder-a-la-aplicación">1. Acceder a la Aplicación&lt;/h3>
+&lt;p>Dirígete a la &lt;a href="https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-crud/">&lt;strong>🎌 Aplicación CRUD&lt;/strong>&lt;/a> desde el menú principal.&lt;/p>
+&lt;h3 id="2-explorar-el-dashboard">2. Explorar el Dashboard&lt;/h3>
+&lt;p>El dashboard te muestra estadísticas clave:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Total de Animes&lt;/strong>: Cantidad total en tu colección&lt;/li>
+&lt;li>&lt;strong>Rating Promedio&lt;/strong>: Calificación media de todos tus animes&lt;/li>
+&lt;li>&lt;strong>Último Añadido&lt;/strong>: El anime más reciente en tu biblioteca&lt;/li>
+&lt;/ul>
+&lt;h2 id="-añadir-animes">➕ Añadir Animes&lt;/h2>
+&lt;h3 id="campos-requeridos">Campos Requeridos:&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>📺 Título&lt;/strong>: Nombre del anime&lt;/li>
+&lt;li>&lt;strong>🎭 Género&lt;/strong>: Categoría principal&lt;/li>
+&lt;li>&lt;strong>⭐ Rating&lt;/strong>: Calificación del 1 al 10&lt;/li>
+&lt;li>&lt;strong>📺 Estado&lt;/strong>: Estado actual de visualización&lt;/li>
+&lt;/ul>
+&lt;h3 id="géneros-disponibles">Géneros Disponibles:&lt;/h3>
+&lt;ul>
+&lt;li>⚔️ &lt;strong>Acción&lt;/strong>: Para animes llenos de combates&lt;/li>
+&lt;li>🗺️ &lt;strong>Aventura&lt;/strong>: Historias épicas de exploración&lt;/li>
+&lt;li>🎭 &lt;strong>Drama&lt;/strong>: Narrativas emotivas y profundas&lt;/li>
+&lt;li>😂 &lt;strong>Comedia&lt;/strong>: Para reírte un rato&lt;/li>
+&lt;li>💕 &lt;strong>Romance&lt;/strong>: Historias de amor&lt;/li>
+&lt;li>🦄 &lt;strong>Fantasía&lt;/strong>: Mundos mágicos y criaturas&lt;/li>
+&lt;li>🚀 &lt;strong>Ciencia Ficción&lt;/strong>: Futurismo y tecnología&lt;/li>
+&lt;li>😱 &lt;strong>Thriller&lt;/strong>: Suspenso y misterio&lt;/li>
+&lt;li>🌸 &lt;strong>Slice of Life&lt;/strong>: Vida cotidiana japonesa&lt;/li>
+&lt;/ul>
+&lt;h3 id="estados-de-visualización">Estados de Visualización:&lt;/h3>
+&lt;ul>
+&lt;li>✅ &lt;strong>Completado&lt;/strong>: Ya terminaste de verlo&lt;/li>
+&lt;li>👀 &lt;strong>Viendo&lt;/strong>: Actualmente en progreso&lt;/li>
+&lt;li>⏸️ &lt;strong>Pausado&lt;/strong>: En pausa temporal&lt;/li>
+&lt;li>❌ &lt;strong>Abandonado&lt;/strong>: Decidiste no continuar&lt;/li>
+&lt;li>📅 &lt;strong>Planificado&lt;/strong>: En tu lista de &amp;ldquo;por ver&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;h2 id="-gestión-de-animes">✏️ Gestión de Animes&lt;/h2>
+&lt;h3 id="editar-animes">Editar Animes&lt;/h3>
+&lt;ol>
+&lt;li>Haz clic en &lt;strong>✏️ Editar&lt;/strong> en cualquier anime&lt;/li>
+&lt;li>Modifica los campos que desees&lt;/li>
+&lt;li>Haz clic en &lt;strong>💾 Actualizar&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;h3 id="eliminar-animes">Eliminar Animes&lt;/h3>
+&lt;ol>
+&lt;li>Haz clic en &lt;strong>🗑️ Eliminar&lt;/strong>&lt;/li>
+&lt;li>Confirma la acción en el diálogo&lt;/li>
+&lt;/ol>
+&lt;h2 id="-características-avanzadas">📱 Características Avanzadas&lt;/h2>
+&lt;h3 id="responsive-design">Responsive Design&lt;/h3>
+&lt;p>La aplicación se adapta automáticamente a:&lt;/p></description></item><item><title>🛠️ Detalles Técnicos del Proyecto</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/arquitectura/</link><pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate><guid>https://anime-api-2r3soktbma-uc.a.run.app/posts/arquitectura/</guid><description>&lt;h1 id="-arquitectura-técnica">🛠️ Arquitectura Técnica&lt;/h1>
+&lt;p>&lt;strong>Anime Collection Manager&lt;/strong> es una aplicación web moderna construida con las mejores prácticas de desarrollo.&lt;/p>
+&lt;h2 id="-arquitectura-general">🏗️ Arquitectura General&lt;/h2>
+&lt;pre tabindex="0">&lt;code>┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ Frontend │ │ Backend │ │ Database │
+│ Hugo + JS │────│ Go + Gin │────│ PostgreSQL │
+│ Terminal UI │ │ REST API │ │ Cloud SQL │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
+&lt;/code>&lt;/pre>&lt;h2 id="-frontend-technologies">🎨 Frontend Technologies&lt;/h2>
+&lt;h3 id="hugo-static-site-generator">Hugo Static Site Generator&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Versión&lt;/strong>: v0.148.0+extended&lt;/li>
+&lt;li>&lt;strong>Tema&lt;/strong>: Terminal Theme v4&lt;/li>
+&lt;li>&lt;strong>Lenguaje&lt;/strong>: Go Templates + JavaScript&lt;/li>
+&lt;/ul>
+&lt;h3 id="terminal-theme-features">Terminal Theme Features&lt;/h3>
+&lt;ul>
+&lt;li>🎨 &lt;strong>Diseño retro&lt;/strong>: Estilo terminal nostálgico&lt;/li>
+&lt;li>🌙 &lt;strong>Modo oscuro&lt;/strong>: Por defecto&lt;/li>
+&lt;li>📱 &lt;strong>Responsive&lt;/strong>: Adaptable a todos los dispositivos&lt;/li>
+&lt;li>⚡ &lt;strong>Rápido&lt;/strong>: Generación estática optimizada&lt;/li>
+&lt;/ul>
+&lt;h3 id="javascript-vanilla">JavaScript Vanilla&lt;/h3>
+&lt;ul>
+&lt;li>🚀 &lt;strong>Sin frameworks&lt;/strong>: JavaScript puro para máximo rendimiento&lt;/li>
+&lt;li>🔄 &lt;strong>Async/Await&lt;/strong>: Manejo moderno de promesas&lt;/li>
+&lt;li>📡 &lt;strong>Fetch API&lt;/strong>: Comunicación con el backend&lt;/li>
+&lt;li>🎯 &lt;strong>DOM Manipulation&lt;/strong>: Actualización dinámica de la interfaz&lt;/li>
+&lt;/ul>
+&lt;h2 id="-backend-technologies">🔧 Backend Technologies&lt;/h2>
+&lt;h3 id="go-programming-language">Go Programming Language&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Versión&lt;/strong>: Go 1.19+&lt;/li>
+&lt;li>&lt;strong>Framework&lt;/strong>: Gin Web Framework&lt;/li>
+&lt;li>&lt;strong>Arquitectura&lt;/strong>: REST API&lt;/li>
+&lt;/ul>
+&lt;h3 id="gin-framework-features">Gin Framework Features&lt;/h3>
+&lt;ul>
+&lt;li>⚡ &lt;strong>Alta performance&lt;/strong>: Hasta 40x más rápido que Martini&lt;/li>
+&lt;li>🛡️ &lt;strong>Middleware&lt;/strong>: CORS, logging, recovery&lt;/li>
+&lt;li>📝 &lt;strong>JSON binding&lt;/strong>: Serialización automática&lt;/li>
+&lt;li>🔀 &lt;strong>Routing&lt;/strong>: Sistema de rutas eficiente&lt;/li>
+&lt;/ul>
+&lt;h3 id="api-endpoints">API Endpoints&lt;/h3>
+&lt;pre tabindex="0">&lt;code>GET /animes # Obtener todos los animes
+POST /animes # Crear nuevo anime
+GET /animes/:id # Obtener anime por ID
+PUT /animes/:id # Actualizar anime
+DELETE /animes/:id # Eliminar anime
+&lt;/code>&lt;/pre>&lt;h2 id="-database-layer">🗄️ Database Layer&lt;/h2>
+&lt;h3 id="postgresql">PostgreSQL&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Versión&lt;/strong>: PostgreSQL 13+&lt;/li>
+&lt;li>&lt;strong>Servicio&lt;/strong>: Google Cloud SQL&lt;/li>
+&lt;li>&lt;strong>Conexión&lt;/strong>: Pooling de conexiones&lt;/li>
+&lt;/ul>
+&lt;h3 id="schema-structure">Schema Structure&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">CREATE&lt;/span> &lt;span style="color:#66d9ef">TABLE&lt;/span> animes (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> id SERIAL &lt;span style="color:#66d9ef">PRIMARY&lt;/span> &lt;span style="color:#66d9ef">KEY&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> title VARCHAR(&lt;span style="color:#ae81ff">255&lt;/span>) &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> genre VARCHAR(&lt;span style="color:#ae81ff">100&lt;/span>) &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rating INTEGER &lt;span style="color:#66d9ef">CHECK&lt;/span> (rating &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#66d9ef">AND&lt;/span> rating &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> status VARCHAR(&lt;span style="color:#ae81ff">50&lt;/span>) &lt;span style="color:#66d9ef">NOT&lt;/span> &lt;span style="color:#66d9ef">NULL&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> created_at &lt;span style="color:#66d9ef">TIMESTAMP&lt;/span> &lt;span style="color:#66d9ef">DEFAULT&lt;/span> &lt;span style="color:#66d9ef">CURRENT_TIMESTAMP&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> updated_at &lt;span style="color:#66d9ef">TIMESTAMP&lt;/span> &lt;span style="color:#66d9ef">DEFAULT&lt;/span> &lt;span style="color:#66d9ef">CURRENT_TIMESTAMP&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-cloud-infrastructure">☁️ Cloud Infrastructure&lt;/h2>
+&lt;h3 id="google-cloud-platform">Google Cloud Platform&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Compute&lt;/strong>: Cloud Run (Serverless)&lt;/li>
+&lt;li>&lt;strong>Database&lt;/strong>: Cloud SQL (PostgreSQL)&lt;/li>
+&lt;li>&lt;strong>Container&lt;/strong>: Docker&lt;/li>
+&lt;li>&lt;strong>Registry&lt;/strong>: Artifact Registry&lt;/li>
+&lt;/ul>
+&lt;h3 id="docker-configuration">Docker Configuration&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:1.19-alpine AS builder&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /app&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> . .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> go mod download&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> go build -o main .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> alpine:latest&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> apk --no-cache add ca-certificates&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> /root/&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> --from&lt;span style="color:#f92672">=&lt;/span>builder /app/main .&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">CMD&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;./main&amp;#34;&lt;/span>]&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="-deployment-pipeline">🚀 Deployment Pipeline&lt;/h2>
+&lt;h3 id="infrastructure-as-code">Infrastructure as Code&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Terraform&lt;/strong>: Gestión de recursos GCP&lt;/li>
+&lt;li>&lt;strong>Variables&lt;/strong>: Configuración centralizada&lt;/li>
+&lt;li>&lt;strong>State&lt;/strong>: Backend remoto en GCS&lt;/li>
+&lt;/ul>
+&lt;h3 id="cicd-process">CI/CD Process&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>Build&lt;/strong>: Compilación de Go binary&lt;/li>
+&lt;li>&lt;strong>Test&lt;/strong>: Ejecución de pruebas unitarias&lt;/li>
+&lt;li>&lt;strong>Docker&lt;/strong>: Construcción de imagen&lt;/li>
+&lt;li>&lt;strong>Deploy&lt;/strong>: Despliegue en Cloud Run&lt;/li>
+&lt;/ol>
+&lt;h2 id="-performance-optimizations">📊 Performance Optimizations&lt;/h2>
+&lt;h3 id="frontend-optimizations">Frontend Optimizations&lt;/h3>
+&lt;ul>
+&lt;li>🗜️ &lt;strong>Minificación&lt;/strong>: CSS y JS comprimidos&lt;/li>
+&lt;li>📦 &lt;strong>Bundling&lt;/strong>: Archivos combinados&lt;/li>
+&lt;li>🖼️ &lt;strong>Lazy Loading&lt;/strong>: Carga diferida de imágenes&lt;/li>
+&lt;li>🔄 &lt;strong>Caching&lt;/strong>: Headers de caché optimizados&lt;/li>
+&lt;/ul>
+&lt;h3 id="backend-optimizations">Backend Optimizations&lt;/h3>
+&lt;ul>
+&lt;li>🔗 &lt;strong>Connection Pooling&lt;/strong>: Reutilización de conexiones DB&lt;/li>
+&lt;li>📊 &lt;strong>Query Optimization&lt;/strong>: Índices de base de datos&lt;/li>
+&lt;li>🗜️ &lt;strong>Compression&lt;/strong>: Gzip response compression&lt;/li>
+&lt;li>⚡ &lt;strong>Gin Performance&lt;/strong>: Framework optimizado&lt;/li>
+&lt;/ul>
+&lt;h2 id="-security-features">🔒 Security Features&lt;/h2>
+&lt;h3 id="frontend-security">Frontend Security&lt;/h3>
+&lt;ul>
+&lt;li>🛡️ &lt;strong>XSS Protection&lt;/strong>: Sanitización de inputs&lt;/li>
+&lt;li>🔐 &lt;strong>HTTPS&lt;/strong>: Conexiones seguras&lt;/li>
+&lt;li>🚫 &lt;strong>CSP&lt;/strong>: Content Security Policy&lt;/li>
+&lt;/ul>
+&lt;h3 id="backend-security">Backend Security&lt;/h3>
+&lt;ul>
+&lt;li>🔒 &lt;strong>SQL Injection Protection&lt;/strong>: Prepared statements&lt;/li>
+&lt;li>🛡️ &lt;strong>CORS&lt;/strong>: Cross-Origin Resource Sharing&lt;/li>
+&lt;li>📝 &lt;strong>Input Validation&lt;/strong>: Validación de datos de entrada&lt;/li>
+&lt;li>🔐 &lt;strong>Environment Variables&lt;/strong>: Secrets management&lt;/li>
+&lt;/ul>
+&lt;h2 id="-monitoring--observability">📈 Monitoring &amp;amp; Observability&lt;/h2>
+&lt;h3 id="logging">Logging&lt;/h3>
+&lt;ul>
+&lt;li>📊 &lt;strong>Structured Logging&lt;/strong>: JSON format&lt;/li>
+&lt;li>🔍 &lt;strong>Request Tracing&lt;/strong>: Seguimiento de requests&lt;/li>
+&lt;li>⚠️ &lt;strong>Error Tracking&lt;/strong>: Captura de errores&lt;/li>
+&lt;/ul>
+&lt;h3 id="metrics">Metrics&lt;/h3>
+&lt;ul>
+&lt;li>📈 &lt;strong>Performance Metrics&lt;/strong>: Latencia y throughput&lt;/li>
+&lt;li>🔍 &lt;strong>Health Checks&lt;/strong>: Endpoint de salud&lt;/li>
+&lt;li>📊 &lt;strong>Database Metrics&lt;/strong>: Conexiones y queries&lt;/li>
+&lt;/ul>
+&lt;h2 id="-testing-strategy">🧪 Testing Strategy&lt;/h2>
+&lt;h3 id="unit-tests">Unit Tests&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Go Testing&lt;/strong>: Pruebas unitarias del backend&lt;/li>
+&lt;li>&lt;strong>Coverage&lt;/strong>: &amp;gt;80% de cobertura&lt;/li>
+&lt;li>&lt;strong>Mocking&lt;/strong>: Simulación de dependencias&lt;/li>
+&lt;/ul>
+&lt;h3 id="integration-tests">Integration Tests&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>API Testing&lt;/strong>: Pruebas de endpoints&lt;/li>
+&lt;li>&lt;strong>Database Testing&lt;/strong>: Pruebas de persistencia&lt;/li>
+&lt;li>&lt;strong>E2E Testing&lt;/strong>: Pruebas de extremo a extremo&lt;/li>
+&lt;/ul>
+&lt;h2 id="-future-enhancements">🔮 Future Enhancements&lt;/h2>
+&lt;h3 id="planned-features">Planned Features&lt;/h3>
+&lt;ul>
+&lt;li>🔍 &lt;strong>Search &amp;amp; Filter&lt;/strong>: Búsqueda avanzada&lt;/li>
+&lt;li>📱 &lt;strong>PWA&lt;/strong>: Progressive Web App&lt;/li>
+&lt;li>🌍 &lt;strong>Multi-language&lt;/strong>: Soporte i18n&lt;/li>
+&lt;li>📊 &lt;strong>Analytics&lt;/strong>: Métricas de uso&lt;/li>
+&lt;li>🔐 &lt;strong>Authentication&lt;/strong>: Sistema de usuarios&lt;/li>
+&lt;/ul>
+&lt;h3 id="technical-debt">Technical Debt&lt;/h3>
+&lt;ul>
+&lt;li>📝 &lt;strong>API Documentation&lt;/strong>: OpenAPI/Swagger&lt;/li>
+&lt;li>🧪 &lt;strong>More Tests&lt;/strong>: Aumentar cobertura&lt;/li>
+&lt;li>🔧 &lt;strong>Refactoring&lt;/strong>: Mejoras de código&lt;/li>
+&lt;li>📦 &lt;strong>Microservices&lt;/strong>: Arquitectura distribuida&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;strong>Anime Collection Manager&lt;/strong> está construido con tecnologías modernas y escalables, diseñado para crecer con las necesidades de los usuarios. 🚀✨&lt;/p></description></item></channel></rss>

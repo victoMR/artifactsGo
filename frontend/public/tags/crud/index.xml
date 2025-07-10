@@ -1,19 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Crud on 🎌 Anime Collection Manager</title>
-    <link>http://localhost:1313/tags/crud/</link>
-    <description>Recent content in Crud on 🎌 Anime Collection Manager</description>
-    <generator>Hugo</generator>
-    <language>es-es</language>
-    <lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/crud/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>🎌 Anime Collection Manager - Aplicación CRUD</title>
-      <link>http://localhost:1313/posts/anime-crud/</link>
-      <pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/anime-crud/</guid>
-      <description>&lt;h1 id=&#34;-gestor-de-colección-de-animes&#34;&gt;🎌 Gestor de Colección de Animes&lt;/h1&gt;&#xA;&lt;p&gt;¡Bienvenido al &lt;strong&gt;Anime Collection Manager&lt;/strong&gt;! Una aplicación web moderna con interfaz terminal para gestionar tu colección personal de animes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;-dashboard-de-estadísticas&#34;&gt;📊 Dashboard de Estadísticas&lt;/h2&gt;&#xA;&lt;div id=&#34;stats-dashboard&#34; class=&#34;terminal-stats&#34;&gt;&#xA;  &lt;div class=&#34;stat-card&#34;&gt;&#xA;    &lt;span class=&#34;stat-number&#34; id=&#34;total-animes&#34;&gt;0&lt;/span&gt;&#xA;    &lt;span class=&#34;stat-label&#34;&gt;Total Animes&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;stat-card&#34;&gt;&#xA;    &lt;span class=&#34;stat-number&#34; id=&#34;avg-rating&#34;&gt;0&lt;/span&gt;&#xA;    &lt;span class=&#34;stat-label&#34;&gt;Rating Promedio&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;stat-card&#34;&gt;&#xA;    &lt;span class=&#34;stat-number&#34; id=&#34;latest-anime&#34;&gt;N/A&lt;/span&gt;&#xA;    &lt;span class=&#34;stat-label&#34;&gt;Último Añadido&lt;/span&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;-gestión-de-animes&#34;&gt;🎯 Gestión de Animes&lt;/h2&gt;&#xA;&lt;h3 id=&#34;-agregar-nuevo-anime&#34;&gt;➕ Agregar Nuevo Anime&lt;/h3&gt;&#xA;&lt;div id=&#34;add-anime-form&#34; class=&#34;terminal-form&#34;&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-title&#34;&gt;📺 Título del Anime:&lt;/label&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;anime-title&#34; placeholder=&#34;Ej: Attack on Titan&#34; required&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-genre&#34;&gt;🎭 Género:&lt;/label&gt;&#xA;    &lt;select id=&#34;anime-genre&#34; required&gt;&#xA;      &lt;option value=&#34;&#34;&gt;Selecciona un género&lt;/option&gt;&#xA;      &lt;option value=&#34;Acción&#34;&gt;⚔️ Acción&lt;/option&gt;&#xA;      &lt;option value=&#34;Aventura&#34;&gt;🗺️ Aventura&lt;/option&gt;&#xA;      &lt;option value=&#34;Drama&#34;&gt;🎭 Drama&lt;/option&gt;&#xA;      &lt;option value=&#34;Comedia&#34;&gt;😂 Comedia&lt;/option&gt;&#xA;      &lt;option value=&#34;Romance&#34;&gt;💕 Romance&lt;/option&gt;&#xA;      &lt;option value=&#34;Fantasía&#34;&gt;🦄 Fantasía&lt;/option&gt;&#xA;      &lt;option value=&#34;Ciencia Ficción&#34;&gt;🚀 Ciencia Ficción&lt;/option&gt;&#xA;      &lt;option value=&#34;Thriller&#34;&gt;😱 Thriller&lt;/option&gt;&#xA;      &lt;option value=&#34;Slice of Life&#34;&gt;🌸 Slice of Life&lt;/option&gt;&#xA;    &lt;/select&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-rating&#34;&gt;⭐ Rating (1-10):&lt;/label&gt;&#xA;    &lt;input type=&#34;number&#34; id=&#34;anime-rating&#34; min=&#34;1&#34; max=&#34;10&#34; placeholder=&#34;8&#34; required&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;form-group&#34;&gt;&#xA;    &lt;label for=&#34;anime-status&#34;&gt;📺 Estado:&lt;/label&gt;&#xA;    &lt;select id=&#34;anime-status&#34; required&gt;&#xA;      &lt;option value=&#34;&#34;&gt;Selecciona estado&lt;/option&gt;&#xA;      &lt;option value=&#34;Completado&#34;&gt;✅ Completado&lt;/option&gt;&#xA;      &lt;option value=&#34;Viendo&#34;&gt;👀 Viendo&lt;/option&gt;&#xA;      &lt;option value=&#34;Pausado&#34;&gt;⏸️ Pausado&lt;/option&gt;&#xA;      &lt;option value=&#34;Abandonado&#34;&gt;❌ Abandonado&lt;/option&gt;&#xA;      &lt;option value=&#34;Planificado&#34;&gt;📅 Planificado&lt;/option&gt;&#xA;    &lt;/select&gt;&#xA;  &lt;/div&gt;&#xA;&lt;p&gt;&lt;button id=&#34;add-anime-btn&#34; class=&#34;terminal-btn primary&#34;&gt;🎌 Añadir Anime&lt;/button&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crud on 🎌 Anime Collection Manager</title><link>https://anime-api-2r3soktbma-uc.a.run.app/tags/crud/</link><description>Recent content in Crud on 🎌 Anime Collection Manager</description><generator>Hugo</generator><language>es-es</language><lastBuildDate>Thu, 10 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://anime-api-2r3soktbma-uc.a.run.app/tags/crud/index.xml" rel="self" type="application/rss+xml"/><item><title>🎌 Anime Collection Manager - Aplicación CRUD</title><link>https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-crud/</link><pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate><guid>https://anime-api-2r3soktbma-uc.a.run.app/posts/anime-crud/</guid><description>&lt;h1 id="-gestor-de-colección-de-animes">🎌 Gestor de Colección de Animes&lt;/h1>
+&lt;p>¡Bienvenido al &lt;strong>Anime Collection Manager&lt;/strong>! Una aplicación web moderna con interfaz terminal para gestionar tu colección personal de animes.&lt;/p>
+&lt;h2 id="-dashboard-de-estadísticas">📊 Dashboard de Estadísticas&lt;/h2>
+&lt;div id="stats-dashboard" class="terminal-stats">
+ &lt;div class="stat-card">
+ &lt;span class="stat-number" id="total-animes">0&lt;/span>
+ &lt;span class="stat-label">Total Animes&lt;/span>
+ &lt;/div>
+ &lt;div class="stat-card">
+ &lt;span class="stat-number" id="avg-rating">0&lt;/span>
+ &lt;span class="stat-label">Rating Promedio&lt;/span>
+ &lt;/div>
+ &lt;div class="stat-card">
+ &lt;span class="stat-number" id="latest-anime">N/A&lt;/span>
+ &lt;span class="stat-label">Último Añadido&lt;/span>
+ &lt;/div>
+&lt;/div>
+&lt;h2 id="-gestión-de-animes">🎯 Gestión de Animes&lt;/h2>
+&lt;h3 id="-agregar-nuevo-anime">➕ Agregar Nuevo Anime&lt;/h3>
+&lt;div id="add-anime-form" class="terminal-form">
+ &lt;div class="form-group">
+ &lt;label for="anime-title">📺 Título del Anime:&lt;/label>
+ &lt;input type="text" id="anime-title" placeholder="Ej: Attack on Titan" required>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-genre">🎭 Género:&lt;/label>
+ &lt;select id="anime-genre" required>
+ &lt;option value="">Selecciona un género&lt;/option>
+ &lt;option value="Acción">⚔️ Acción&lt;/option>
+ &lt;option value="Aventura">🗺️ Aventura&lt;/option>
+ &lt;option value="Drama">🎭 Drama&lt;/option>
+ &lt;option value="Comedia">😂 Comedia&lt;/option>
+ &lt;option value="Romance">💕 Romance&lt;/option>
+ &lt;option value="Fantasía">🦄 Fantasía&lt;/option>
+ &lt;option value="Ciencia Ficción">🚀 Ciencia Ficción&lt;/option>
+ &lt;option value="Thriller">😱 Thriller&lt;/option>
+ &lt;option value="Slice of Life">🌸 Slice of Life&lt;/option>
+ &lt;/select>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-rating">⭐ Rating (1-10):&lt;/label>
+ &lt;input type="number" id="anime-rating" min="1" max="10" placeholder="8" required>
+ &lt;/div>
+ &lt;div class="form-group">
+ &lt;label for="anime-status">📺 Estado:&lt;/label>
+ &lt;select id="anime-status" required>
+ &lt;option value="">Selecciona estado&lt;/option>
+ &lt;option value="Completado">✅ Completado&lt;/option>
+ &lt;option value="Viendo">👀 Viendo&lt;/option>
+ &lt;option value="Pausado">⏸️ Pausado&lt;/option>
+ &lt;option value="Abandonado">❌ Abandonado&lt;/option>
+ &lt;option value="Planificado">📅 Planificado&lt;/option>
+ &lt;/select>
+ &lt;/div>
+&lt;p>&lt;button id="add-anime-btn" class="terminal-btn primary">🎌 Añadir Anime&lt;/button>&lt;/p></description></item></channel></rss>
