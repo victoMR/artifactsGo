@@ -28,9 +28,14 @@ Una aplicación web completa para gestionar colecciones de anime con backend en 
 │   ├── 📄 go.mod             # Dependencias de Go
 │   ├── 📄 go.sum             # Checksums de dependencias
 │   └── 🚀 main.go            # Servidor API principal
-├── 📂 frontend/              # Frontend Web
-│   └── 📂 static/
-│       └── 🌐 index.html     # Aplicación web CRUD
+├── 📂 frontend/              # Frontend Web con Hugo
+│   ├── 📄 hugo.toml          # Configuración principal de Hugo
+│   ├── 📄 config.toml        # Configuración de tema
+│   ├── 📂 themes/            # Tema Ananke
+│   ├── 📂 content/           # Contenido en Markdown
+│   │   └── 🌐 _index.md      # Página principal con app CRUD
+│   ├── 📂 layouts/           # Plantillas Hugo
+│   └── 📂 static/            # Archivos estáticos (JS, CSS, imágenes)
 └── 📂 terraform/             # Infraestructura como código
     ├── 🏗️ main.tf            # Configuración principal
     ├── 🔧 variables.tf       # Variables de configuración
@@ -42,7 +47,7 @@ Una aplicación web completa para gestionar colecciones de anime con backend en 
 | 🛠️ **Tecnología** | 📋 **Propósito** | ✨ **Beneficios** |
 |:------------------|:------------------|:------------------|
 | **🔷 Go + Gin** | Backend API REST | • Alto rendimiento<br>• Sintaxis simple<br>• Compilación rápida<br>• Excelente para APIs |
-| **🌐 HTML + CSS + JS** | Frontend interactivo | • Sin frameworks pesados<br>• Carga rápida<br>• Compatible universalmente<br>• Fácil mantenimiento |
+| **� Hugo + Ananke** | Frontend con generador estático | • Sitios rápidos y SEO optimizados<br>• Temas profesionales<br>• Markdown para contenido<br>• Build-time optimization<br>• Estructura escalable |
 | **🐳 Docker** | Containerización | • Portabilidad garantizada<br>• Aislamiento de dependencias<br>• Despliegues consistentes<br>• Escalabilidad |
 | **☁️ Google Cloud Run** | Hosting serverless | • Escalado automático<br>• Pago por uso<br>• Alta disponibilidad<br>• HTTPS automático |
 | **🏗️ Terraform** | Infraestructura como código | • Versionado de infraestructura<br>• Despliegues reproducibles<br>• Gestión de estado<br>• Rollbacks seguros |
@@ -190,7 +195,25 @@ cd backend
 go mod download
 go run main.go
 
-# Frontend se sirve automáticamente en /static/
+# Frontend (Hugo)
+cd frontend
+hugo server --bind 0.0.0.0 --port 1313
+# Frontend estará en: http://localhost:1313/
+# API estará en: http://localhost:8080/animes
+```
+
+### 🎨 Desarrollo Hugo
+
+```bash
+# Generar sitio estático
+cd frontend
+hugo
+
+# Servidor de desarrollo con live-reload
+hugo server -D
+
+# Construir para producción
+hugo --minify
 ```
 
 ## 📊 Estructura de Datos
