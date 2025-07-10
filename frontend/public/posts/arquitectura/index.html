@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>🛠️ Detalles Técnicos del Proyecto :: 🎌 Anime Collection Manager</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Arquitectura y tecnologías utilizadas en Anime Collection Manager" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/posts/arquitectura/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/main.min.775ac2af004d44c22a6d000fbd1d9af529642f5cef27399d0280d180af2c2e9b.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/menu.min.310d32205bdedd6f43144e3c3273c9deecd238eba5f9108db5ea96ca0cfbe377.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/post.min.ad50c7f4d00e7975918f37fc74c6029e1959a40d66fb5b2c6564a8715e985573.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.min.e9ab635cf918bc84b901eb65c0b2caa74c9544245e3647c1af5c129896ef276e.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="🛠️ Detalles Técnicos del Proyecto">
+<meta property="og:description" content="Arquitectura y tecnologías utilizadas en Anime Collection Manager" />
+<meta property="og:url" content="http://localhost:1313/posts/arquitectura/" />
+<meta property="og:site_name" content="🎌 Anime Collection Manager" />
+
+  <meta property="og:image" content="http://localhost:1313/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-07-08 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    🎌 Anime Collection Manager
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/">🏠 Inicio</a></li>
+        
+      
+        
+          <li><a href="/posts/anime-crud/">🎌 Aplicación</a></li>
+        
+      
+        
+          <li><a href="/posts/">📝 Posts</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/" >🏠 Inicio</a></li>
+        
+      
+        
+          <li><a href="/posts/anime-crud/" >🎌 Aplicación</a></li>
+        
+      
+        
+          <li><a href="/posts/" >📝 Posts</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/arquitectura/">🛠️ Detalles Técnicos del Proyecto</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-07-08&nbsp;[Updated:  2025-07-08]</time><span class="post-author">Anime Collection Team</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/tags/desarrollo/">desarrollo</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/tecnolog%C3%ADa/">tecnología</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/arquitectura/">arquitectura</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="-arquitectura-técnica">🛠️ Arquitectura Técnica<a href="#-arquitectura-técnica" class="hanchor" ariaLabel="Anchor">#</a> </h1>
+<p><strong>Anime Collection Manager</strong> es una aplicación web moderna construida con las mejores prácticas de desarrollo.</p>
+<h2 id="-arquitectura-general">🏗️ Arquitectura General<a href="#-arquitectura-general" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<pre tabindex="0"><code>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│     Frontend    │    │     Backend     │    │    Database     │
+│   Hugo + JS     │────│   Go + Gin      │────│   PostgreSQL    │
+│   Terminal UI   │    │   REST API      │    │   Cloud SQL     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+</code></pre><h2 id="-frontend-technologies">🎨 Frontend Technologies<a href="#-frontend-technologies" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="hugo-static-site-generator">Hugo Static Site Generator<a href="#hugo-static-site-generator" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>Versión</strong>: v0.148.0+extended</li>
+<li><strong>Tema</strong>: Terminal Theme v4</li>
+<li><strong>Lenguaje</strong>: Go Templates + JavaScript</li>
+</ul>
+<h3 id="terminal-theme-features">Terminal Theme Features<a href="#terminal-theme-features" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🎨 <strong>Diseño retro</strong>: Estilo terminal nostálgico</li>
+<li>🌙 <strong>Modo oscuro</strong>: Por defecto</li>
+<li>📱 <strong>Responsive</strong>: Adaptable a todos los dispositivos</li>
+<li>⚡ <strong>Rápido</strong>: Generación estática optimizada</li>
+</ul>
+<h3 id="javascript-vanilla">JavaScript Vanilla<a href="#javascript-vanilla" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🚀 <strong>Sin frameworks</strong>: JavaScript puro para máximo rendimiento</li>
+<li>🔄 <strong>Async/Await</strong>: Manejo moderno de promesas</li>
+<li>📡 <strong>Fetch API</strong>: Comunicación con el backend</li>
+<li>🎯 <strong>DOM Manipulation</strong>: Actualización dinámica de la interfaz</li>
+</ul>
+<h2 id="-backend-technologies">🔧 Backend Technologies<a href="#-backend-technologies" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="go-programming-language">Go Programming Language<a href="#go-programming-language" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>Versión</strong>: Go 1.19+</li>
+<li><strong>Framework</strong>: Gin Web Framework</li>
+<li><strong>Arquitectura</strong>: REST API</li>
+</ul>
+<h3 id="gin-framework-features">Gin Framework Features<a href="#gin-framework-features" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>⚡ <strong>Alta performance</strong>: Hasta 40x más rápido que Martini</li>
+<li>🛡️ <strong>Middleware</strong>: CORS, logging, recovery</li>
+<li>📝 <strong>JSON binding</strong>: Serialización automática</li>
+<li>🔀 <strong>Routing</strong>: Sistema de rutas eficiente</li>
+</ul>
+<h3 id="api-endpoints">API Endpoints<a href="#api-endpoints" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<pre tabindex="0"><code>GET    /animes          # Obtener todos los animes
+POST   /animes          # Crear nuevo anime
+GET    /animes/:id      # Obtener anime por ID
+PUT    /animes/:id      # Actualizar anime
+DELETE /animes/:id      # Eliminar anime
+</code></pre><h2 id="-database-layer">🗄️ Database Layer<a href="#-database-layer" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="postgresql">PostgreSQL<a href="#postgresql" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>Versión</strong>: PostgreSQL 13+</li>
+<li><strong>Servicio</strong>: Google Cloud SQL</li>
+<li><strong>Conexión</strong>: Pooling de conexiones</li>
+</ul>
+<h3 id="schema-structure">Schema Structure<a href="#schema-structure" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> animes (
+</span></span><span style="display:flex;"><span>    id SERIAL <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>    title VARCHAR(<span style="color:#ae81ff">255</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    genre VARCHAR(<span style="color:#ae81ff">100</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    rating INTEGER <span style="color:#66d9ef">CHECK</span> (rating <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AND</span> rating <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span>),
+</span></span><span style="display:flex;"><span>    status VARCHAR(<span style="color:#ae81ff">50</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>    created_at <span style="color:#66d9ef">TIMESTAMP</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>    updated_at <span style="color:#66d9ef">TIMESTAMP</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">CURRENT_TIMESTAMP</span>
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><h2 id="-cloud-infrastructure">☁️ Cloud Infrastructure<a href="#-cloud-infrastructure" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="google-cloud-platform">Google Cloud Platform<a href="#google-cloud-platform" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>Compute</strong>: Cloud Run (Serverless)</li>
+<li><strong>Database</strong>: Cloud SQL (PostgreSQL)</li>
+<li><strong>Container</strong>: Docker</li>
+<li><strong>Registry</strong>: Artifact Registry</li>
+</ul>
+<h3 id="docker-configuration">Docker Configuration<a href="#docker-configuration" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> golang:1.19-alpine AS builder</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> go mod download<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> go build -o main .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> alpine:latest</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk --no-cache add ca-certificates<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /root/</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>builder /app/main .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;./main&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h2 id="-deployment-pipeline">🚀 Deployment Pipeline<a href="#-deployment-pipeline" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="infrastructure-as-code">Infrastructure as Code<a href="#infrastructure-as-code" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>Terraform</strong>: Gestión de recursos GCP</li>
+<li><strong>Variables</strong>: Configuración centralizada</li>
+<li><strong>State</strong>: Backend remoto en GCS</li>
+</ul>
+<h3 id="cicd-process">CI/CD Process<a href="#cicd-process" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ol>
+<li><strong>Build</strong>: Compilación de Go binary</li>
+<li><strong>Test</strong>: Ejecución de pruebas unitarias</li>
+<li><strong>Docker</strong>: Construcción de imagen</li>
+<li><strong>Deploy</strong>: Despliegue en Cloud Run</li>
+</ol>
+<h2 id="-performance-optimizations">📊 Performance Optimizations<a href="#-performance-optimizations" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="frontend-optimizations">Frontend Optimizations<a href="#frontend-optimizations" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🗜️ <strong>Minificación</strong>: CSS y JS comprimidos</li>
+<li>📦 <strong>Bundling</strong>: Archivos combinados</li>
+<li>🖼️ <strong>Lazy Loading</strong>: Carga diferida de imágenes</li>
+<li>🔄 <strong>Caching</strong>: Headers de caché optimizados</li>
+</ul>
+<h3 id="backend-optimizations">Backend Optimizations<a href="#backend-optimizations" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🔗 <strong>Connection Pooling</strong>: Reutilización de conexiones DB</li>
+<li>📊 <strong>Query Optimization</strong>: Índices de base de datos</li>
+<li>🗜️ <strong>Compression</strong>: Gzip response compression</li>
+<li>⚡ <strong>Gin Performance</strong>: Framework optimizado</li>
+</ul>
+<h2 id="-security-features">🔒 Security Features<a href="#-security-features" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="frontend-security">Frontend Security<a href="#frontend-security" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🛡️ <strong>XSS Protection</strong>: Sanitización de inputs</li>
+<li>🔐 <strong>HTTPS</strong>: Conexiones seguras</li>
+<li>🚫 <strong>CSP</strong>: Content Security Policy</li>
+</ul>
+<h3 id="backend-security">Backend Security<a href="#backend-security" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🔒 <strong>SQL Injection Protection</strong>: Prepared statements</li>
+<li>🛡️ <strong>CORS</strong>: Cross-Origin Resource Sharing</li>
+<li>📝 <strong>Input Validation</strong>: Validación de datos de entrada</li>
+<li>🔐 <strong>Environment Variables</strong>: Secrets management</li>
+</ul>
+<h2 id="-monitoring--observability">📈 Monitoring &amp; Observability<a href="#-monitoring--observability" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="logging">Logging<a href="#logging" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>📊 <strong>Structured Logging</strong>: JSON format</li>
+<li>🔍 <strong>Request Tracing</strong>: Seguimiento de requests</li>
+<li>⚠️ <strong>Error Tracking</strong>: Captura de errores</li>
+</ul>
+<h3 id="metrics">Metrics<a href="#metrics" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>📈 <strong>Performance Metrics</strong>: Latencia y throughput</li>
+<li>🔍 <strong>Health Checks</strong>: Endpoint de salud</li>
+<li>📊 <strong>Database Metrics</strong>: Conexiones y queries</li>
+</ul>
+<h2 id="-testing-strategy">🧪 Testing Strategy<a href="#-testing-strategy" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="unit-tests">Unit Tests<a href="#unit-tests" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>Go Testing</strong>: Pruebas unitarias del backend</li>
+<li><strong>Coverage</strong>: &gt;80% de cobertura</li>
+<li><strong>Mocking</strong>: Simulación de dependencias</li>
+</ul>
+<h3 id="integration-tests">Integration Tests<a href="#integration-tests" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li><strong>API Testing</strong>: Pruebas de endpoints</li>
+<li><strong>Database Testing</strong>: Pruebas de persistencia</li>
+<li><strong>E2E Testing</strong>: Pruebas de extremo a extremo</li>
+</ul>
+<h2 id="-future-enhancements">🔮 Future Enhancements<a href="#-future-enhancements" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="planned-features">Planned Features<a href="#planned-features" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>🔍 <strong>Search &amp; Filter</strong>: Búsqueda avanzada</li>
+<li>📱 <strong>PWA</strong>: Progressive Web App</li>
+<li>🌍 <strong>Multi-language</strong>: Soporte i18n</li>
+<li>📊 <strong>Analytics</strong>: Métricas de uso</li>
+<li>🔐 <strong>Authentication</strong>: Sistema de usuarios</li>
+</ul>
+<h3 id="technical-debt">Technical Debt<a href="#technical-debt" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<ul>
+<li>📝 <strong>API Documentation</strong>: OpenAPI/Swagger</li>
+<li>🧪 <strong>More Tests</strong>: Aumentar cobertura</li>
+<li>🔧 <strong>Refactoring</strong>: Mejoras de código</li>
+<li>📦 <strong>Microservices</strong>: Arquitectura distribuida</li>
+</ul>
+<hr>
+<p><strong>Anime Collection Manager</strong> está construido con tecnologías modernas y escalables, diseñado para crecer con las necesidades de los usuarios. 🚀✨</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h"></span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="http://localhost:1313/posts/guia-uso/" class="button inline prev">
+        &lt; [<span class="button__text">🚀 Cómo usar Anime Collection Manager</span>]
+      </a>
+    
+    
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

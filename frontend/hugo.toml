@@ -1,0 +1,67 @@
+baseURL = 'https://anime-api-2r3soktbma-uc.a.run.app/'
+languageCode = 'es-es'
+title = '🎌 Anime Collection Manager'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  # Configuración básica del tema Terminal
+  contentTypeName = "posts"
+  showMenuItems = 3
+  fullWidthTheme = false
+  centerTheme = true
+  
+  # Colores y tema
+  themeColor = "red"
+  backgroundColor = "dark"
+  
+  # Características adicionales
+  showReadingTime = true
+  showShareButtons = true
+  showLastUpdated = true
+  showToc = true
+  
+  # CSS personalizado
+  customCSS = ["css/custom.css"]
+  
+  # Favicon
+  favicon = "/favicon.svg"
+  
+  # Configuración del logo
+  [params.logo]
+    logoText = "🎌 Anime Collection Manager"
+    logoHomeLink = "/"
+    
+  # Configuración de social media
+  [params.social]
+    github = "https://github.com/victoMR"
+    
+  # Configuración de la página de inicio
+  [params.portrait]
+    path = ""
+    alt = "Anime Collection Manager"
+    maxWidth = "300px"
+
+# Menú de navegación
+[[menu.main]]
+  identifier = "home"
+  name = "🏠 Inicio"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  identifier = "app"
+  name = "🎌 Aplicación"
+  url = "/posts/anime-crud/"
+  weight = 2
+
+[[menu.main]]
+  identifier = "posts"
+  name = "📝 Posts"
+  url = "/posts/"
+  weight = 3
+
+[module]
+[[module.imports]]
+  path = 'github.com/panr/hugo-theme-terminal/v4'
