@@ -46,6 +46,7 @@ resource "google_project_iam_member" "cloudbuild_sa_roles" {
   for_each = toset([
     "roles/cloudbuild.builds.builder",
     "roles/artifactregistry.writer",
+    "roles/logging.logWriter"
   ])
   project = var.project_id
   role    = each.key
@@ -68,8 +69,12 @@ resource "google_cloudbuild_trigger" "build" {
   }
 
   build {
-    logs_bucket = ""
     timeout = "600s"
+    
+    # Opción 1: Usar Cloud Logging (recomendado para simplicidad)
+    options {
+      logging = "CLOUD_LOGGING_ONLY"
+    }
 
     step {
       name = "gcr.io/cloud-builders/docker"
