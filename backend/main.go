@@ -20,6 +20,8 @@ var animes = []Anime{
 func main() {
 	r := gin.Default()
 
+	r.Static("/", "/static")
+
 	// Endpoints CRUD
 	r.GET("/animes", getAnimes)
 	r.POST("/animes", addAnime)

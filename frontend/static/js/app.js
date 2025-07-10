@@ -1,4 +1,4 @@
-fetch("http://localhost:8080/animes")
+fetch("/animes")
   .then(res => res.json())
   .then(data => {
     const list = document.getElementById("anime-list");
